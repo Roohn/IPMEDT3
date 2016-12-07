@@ -8,12 +8,14 @@
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/load.js"></script>
     <script src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
     <!-- Alles in deze tag wordt VR -->
-    <a-scene>
+    <a-scene id="page" visible="false">
 
         <!--camera-->
         <a-entity id="camera" camera="userHeight: 5.6" look-controls>
@@ -64,5 +66,6 @@
         <a-plane class="wall" src="assets/img/behang.jpg" height="60" width="100" position="50 30 0" rotation="0 -90 0"></a-plane>
 
     </a-scene>
+    <div id="loading">LOADING....</div>
 </body>
 </html>
