@@ -75,14 +75,15 @@
             <a-obj-model src="#desk-obj" mtl="#desk-mtl"></a-obj-model>
         </a-entity>
 
-        <!--grond-->
-        <a-plane class="floor" src="assets/img/laminaat.jpg" width="100" height="100" position="0 0 0" rotation="-90 0 0"></a-plane>
+        <!-- grond en dak -->
+        <a-plane class="floor" src="assets/img/laminaat.jpg" width="50" height="50" position="0 0 0" rotation="-90 0 0"></a-plane>
+        <a-plane class="roof" src="assets/img/plafond.jpg" width="50" height="50" position="0 25 0" rotation="90 0 0"></a-plane>
 
         <!--de kamer (muren)-->
-        <a-plane class="wall" src="assets/img/behang.jpg" height="60" width="100" position="0 30 50" rotation="0 180 0"></a-plane>
-        <a-plane class="wall" src="assets/img/behang.jpg" height="60" width="100" position="0 30 -50"></a-plane>
-        <a-plane class="wall" src="assets/img/behang.jpg" height="60" width="100" position="-50 30 0" rotation="0 90 0"></a-plane>
-        <a-plane class="wall" src="assets/img/behang.jpg" height="60" width="100" position="50 30 0" rotation="0 -90 0"></a-plane>
+        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="0 20 25" rotation="0 180 0"></a-plane>
+        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="0 20 -25"></a-plane>
+        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="-25 20 0" rotation="0 90 0"></a-plane>
+        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="25 20 0" rotation="0 -90 0"></a-plane>
 
     </a-scene>
     <div id="loading">LOADING....</div>
