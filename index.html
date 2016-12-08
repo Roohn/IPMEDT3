@@ -8,8 +8,8 @@
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="assets/js/jquery-3.1.1.min.js"></script>
-    <script src="assets/js/load.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/load.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -21,19 +21,25 @@
         <a-entity id="camera" camera="userHeight: 5.6" look-controls wasd-controls>
             <a-entity id="cursor"
                       position="0 0 -3"
-                      geometry="primitive: ring; radiusOuter: 0.10;
+                      geometry="primitive: ring; radiusOuter: 0.075;
                       radiusInner: 0.05;"
-                      material="color: black; shader: flat"
+                      material="color: cyan; shader: flat"
                       cursor="fuse: true; fuseTimeout: 800">
                 <a-animation begin="cursorclick" easing="ease-in" attribute="scale"
-                             fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="150"></a-animation>
+                             fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="300"></a-animation>
                 <a-animation begin="fusing" easing="ease-in" attribute="scale"
                              fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="1500"></a-animation>
             </a-entity>
 
             <!-- De processor -->
-            <a-entity id="processor-camera" scale="0.5 0.5 0.5" position="1 -1 -1" visible="false">
+            <a-entity id="processor-camera" scale="0.5 0.5 0.5" position="1 -1 -1.5" visible="false">
                 <a-obj-model src="#processor-obj" mtl="#processor-mtl"></a-obj-model>
+            </a-entity>
+
+            <!-- Het moederboard -->
+            <a-entity id="motherboard-camera" position="1 -1 -1.5" scale="0.01 0.01 0.01" visible="false" rotation="25 0 0">
+                <a-obj-model src="#motherboard-obj" mtl="#motherboard-mtl"></a-obj-model>
+                <a-obj-model src="#processor-obj" mtl="#processor-mtl" position="85 4.55 -5" scale="35 35 35"></a-obj-model>
             </a-entity>
 
         </a-entity>
@@ -61,6 +67,7 @@
 
         <a-entity id="motherboard" position="2 4.5 -3.5" scale="0.01 0.01 0.01">
             <a-obj-model src="#motherboard-obj" mtl="#motherboard-mtl"></a-obj-model>
+            <a-obj-model visible="false" id="combi-processor" src="#processor-obj" mtl="#processor-mtl" position="85 4.55 -5" scale="35 35 35"></a-obj-model>
         </a-entity>
 
         <!-- Het bureau -->
