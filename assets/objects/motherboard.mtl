@@ -9,7 +9,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  0.0
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 newmtl Material__147
 Ka  0.8 0.8 0.8
@@ -18,7 +18,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  0.0
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 newmtl Material__148
 Ka  0.8 0.6 0.3
@@ -27,7 +27,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  15.0
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 newmtl Material__151
 Ka  0.9 0.9 0.9
@@ -36,7 +36,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  10.8
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 newmtl Material__149
 Ka  0.2 0.2 0.5
@@ -45,7 +45,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  2.6
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 newmtl Material__154
 Ka  0.8 0.8 0.8
@@ -54,7 +54,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  0.0
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 newmtl Material__155
 Ka  0.2 0.3 0.2
@@ -63,7 +63,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  0.0
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 newmtl Material__150
 Ka  0.1 0.1 0.1
@@ -72,7 +72,7 @@ Ks  0.9 0.9 0.9
 d  1.0
 Ns  0.0
 illum 2
-map_Kd \textures\p4sba-mb.jpg
+map_Kd \Textures\p4sba-mb.jpg
 #
 # Multi/Sub Material__35 done 
 #
