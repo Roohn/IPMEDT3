@@ -27,6 +27,20 @@ $(document).ready(function () {
         if(stap == 1){
             cursorClick();
             showModelOnCamera(this.id);
+			$('#page').append('<a-entity id="motherboard-indicator" position="-3.3 6.46 -2.68">' +
+            '<a-plane class="indicator" height="2.1" width="2.2" color="yellow" rotation="0 45 0"></a-plane>' +
+            '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
+            '</a-entity>');
+			$('#motherboard-indicator').on('click', function () {
+				//motherboard en processor vervangen door combi
+				$(this).remove();
+				$('#motherboard-camera').attr('visible', false);
+				$('#kast-motherboard').attr('visible', true);
+				$('#kast-processor').attr('visible', true);
+				
+				stap = 2;
+			});
+			
         }
     });
 });

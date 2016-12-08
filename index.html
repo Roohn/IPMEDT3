@@ -63,6 +63,8 @@
 		
 		<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
             <a-obj-model src="#case-obj" mtl="#case-mtl"></a-obj-model>
+			<a-obj-model visible="false" id="kast-motherboard" src="#motherboard-obj" mtl="#motherboard-mtl" position="0.15 1.96 0.90" rotation="0 180 90" scale="0.0085 0.0085 0.0085"></a-obj-model>
+            <a-obj-model visible="false" id="kast-processor" src="#processor-obj" mtl="#processor-mtl" position=".2 2.69 .92" scale=".3 .3 .3" rotation="0 180 90"></a-obj-model>
         </a-entity>
 
         <a-entity id="motherboard" position="2 4.5 -3.5" scale="0.01 0.01 0.01">
@@ -74,7 +76,8 @@
         <a-entity scale="6 6 6" position="-6 0 -6">
             <a-obj-model src="#desk-obj" mtl="#desk-mtl"></a-obj-model>
         </a-entity>
-
+		
+		
         <!--grond-->
         <a-plane class="floor" src="assets/img/laminaat.jpg" width="100" height="100" position="0 0 0" rotation="-90 0 0"></a-plane>
 
