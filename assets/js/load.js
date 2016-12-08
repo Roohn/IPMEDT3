@@ -9,7 +9,7 @@ function onReady(callback) {
     }
 }
 
-window.onload(function () {
+window.onload = function () {
     $('#page').attr('visible', 'true');
     $('#loading').css('display', 'none');
-});
+};
