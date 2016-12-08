@@ -1,5 +1,5 @@
 function onReady(callback) {
-    var intervalID = window.setInterval(checkReady, 1000);
+    var intervalID = window.setInterval(checkReady, 3000);
 
     function checkReady() {
         if (document.getElementsByTagName('body')[0] !== undefined) {
@@ -9,7 +9,7 @@ function onReady(callback) {
     }
 }
 
-window.onload = function () {
+onReady(function () {
     $('#page').attr('visible', 'true');
     $('#loading').css('display', 'none');
-};
+});
