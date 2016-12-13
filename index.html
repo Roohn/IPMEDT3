@@ -10,6 +10,7 @@
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/load.js"></script>
+    <script src="assets/js/APIloader.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -88,6 +89,13 @@
         <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="0 20 -25"></a-plane>
         <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="-25 20 0" rotation="0 90 0"></a-plane>
         <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="25 20 0" rotation="0 -90 0"></a-plane>
+
+        <!--informatie over opgepakt component-->
+        <a-plane id="getInfo" position="4.7 7.2 -6" height="1" width="1" color="black">
+            <a-entity bmfont-text="text: Info; color: white;" position="-0.15 0 0"></a-entity>
+        </a-plane>
+        <a-entity id="informatie-text" bmfont-text="text: ; color: white; width: 800; lineHeight: 33.00" position="-0.75 4.5 -5.9"></a-entity>
+        <a-plane id="informatie-monitor" position="1.6 5.7 -6" material="shader: flat; color: black; opacity: 0.9" width="5" height="4"></a-plane>
 
     </a-scene>
     <div id="loading">LOADING....</div>
