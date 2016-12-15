@@ -35,13 +35,13 @@
 
             <!-- De processor -->
             <a-entity id="processor-camera" scale="0.5 0.5 0.5" position="1 -1 -1.5" visible="false">
-                <a-obj-model src="#processor-obj" mtl="#processor-mtl"></a-obj-model>
+                <a-collada-model src="#processor-dae"></a-collada-model>
             </a-entity>
 
             <!-- Het moederboard -->
             <a-entity id="motherboard-camera" position="1 -1 -1.5" scale="0.01 0.01 0.01" visible="false" rotation="25 0 0">
                 <a-obj-model src="#motherboard-obj" mtl="#motherboard-mtl"></a-obj-model>
-                <a-obj-model src="#processor-obj" mtl="#processor-mtl" position="85 4.55 -5" scale="35 35 35"></a-obj-model>
+                <a-collada-model src="#processor-dae" position="85 4.55 -5" scale="35 35 35"></a-collada-model>
             </a-entity>
 
         </a-entity>
@@ -50,30 +50,28 @@
         <a-assets>
             <a-asset-item id="desk-obj" src="assets/objects/desk.obj"></a-asset-item>
             <a-asset-item id="desk-mtl" src="assets/objects/desk.mtl"></a-asset-item>
-            <a-asset-item id="processor-obj" src="assets/objects/processor.obj"></a-asset-item>
-            <a-asset-item id="processor-mtl" src="assets/objects/processor.mtl"></a-asset-item>
+            <a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
 			<a-asset-item id="case-obj" src="assets/objects/pcCase.obj"></a-asset-item>
             <a-asset-item id="case-mtl" src="assets/objects/pcCase.mtl"></a-asset-item>
             <a-asset-item id="motherboard-obj" src="assets/objects/motherboard.obj"></a-asset-item>
             <a-asset-item id="motherboard-mtl" src="assets/objects/motherboard.mtl"></a-asset-item>
-            <a-asset-item id="knop-obj" src="assets/objects/Knop.obj"></a-asset-item>
-            <a-asset-item id="knop-mtl" src="assets/objects/Knop.mtl"></a-asset-item>
+            <a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
         </a-assets>
 
         <!-- De processor -->
         <a-entity id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
-            <a-obj-model src="#processor-obj" mtl="#processor-mtl"></a-obj-model>
+            <a-collada-model src="#processor-dae"></a-collada-model>
         </a-entity>
 		
 		<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
             <a-obj-model src="#case-obj" mtl="#case-mtl"></a-obj-model>
 			<a-obj-model visible="false" id="kast-motherboard" src="#motherboard-obj" mtl="#motherboard-mtl" position="0.15 1.96 0.90" rotation="0 180 90" scale="0.0085 0.0085 0.0085"></a-obj-model>
-            <a-obj-model visible="false" id="kast-processor" src="#processor-obj" mtl="#processor-mtl" position=".2 2.69 .92" scale=".3 .3 .3" rotation="0 180 90"></a-obj-model>
+            <a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".2 2.69 .92" scale=".3 .3 .3" rotation="0 180 90"></a-collada-model>
         </a-entity>
 
         <a-entity id="motherboard" position="2 4.5 -3.5" scale="0.01 0.01 0.01">
             <a-obj-model src="#motherboard-obj" mtl="#motherboard-mtl"></a-obj-model>
-            <a-obj-model visible="false" id="combi-processor" src="#processor-obj" mtl="#processor-mtl" position="85 4.55 -5" scale="35 35 35"></a-obj-model>
+            <a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="85 4.55 -5" scale="35 35 35"></a-collada-model>
         </a-entity>
 
         <!-- Het bureau -->
@@ -82,7 +80,7 @@
         </a-entity>
 
         <a-entity id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
-            <a-obj-model src="#knop-obj" mtl="#knop-mtl"></a-obj-model>
+            <a-collada-model src="#knop-dae"></a-collada-model>
         </a-entity>
 		
 
