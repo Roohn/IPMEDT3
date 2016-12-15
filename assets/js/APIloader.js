@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#getInfo').on('click', function () {
+    $('#infoknop').on('click', function () {
         if (stap == 0) {
             getData('Processor_(computer)');
         }
