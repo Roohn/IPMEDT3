@@ -30,6 +30,7 @@
                 <a-animation begin="fusing" easing="ease-in" attribute="scale"
                              fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="1500"></a-animation>
             </a-entity>
+			
             <a-entity id="tutorial-text" bmfont-text="text: Pak de processor om te beginnen; color: white;" position="-1 3 -4"></a-entity>
 
             <!-- De processor -->
@@ -51,10 +52,11 @@
             <a-asset-item id="desk-mtl" src="assets/objects/desk.mtl"></a-asset-item>
             <a-asset-item id="processor-obj" src="assets/objects/processor.obj"></a-asset-item>
             <a-asset-item id="processor-mtl" src="assets/objects/processor.mtl"></a-asset-item>
-			<a-asset-item id="case-obj" src="assets/objects/pcCase.obj"></a-asset-item>
-            <a-asset-item id="case-mtl" src="assets/objects/pcCase.mtl"></a-asset-item>
+			<!-- <a-asset-item id="case-obj" src="assets/objects/pcCase.obj"></a-asset-item> -->
+            <!-- <a-asset-item id="case-mtl" src="assets/objects/pcCase.mtl"></a-asset-item> -->
             <a-asset-item id="motherboard-obj" src="assets/objects/motherboard.obj"></a-asset-item>
             <a-asset-item id="motherboard-mtl" src="assets/objects/motherboard.mtl"></a-asset-item>
+			<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
         </a-assets>
 
         <!-- De processor -->
@@ -63,7 +65,7 @@
         </a-entity>
 		
 		<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
-            <a-obj-model src="#case-obj" mtl="#case-mtl"></a-obj-model>
+            <a-collada-model src="#caseDae" ></a-collada-model>
 			<a-obj-model visible="false" id="kast-motherboard" src="#motherboard-obj" mtl="#motherboard-mtl" position="0.15 1.96 0.90" rotation="0 180 90" scale="0.0085 0.0085 0.0085"></a-obj-model>
             <a-obj-model visible="false" id="kast-processor" src="#processor-obj" mtl="#processor-mtl" position=".2 2.69 .92" scale=".3 .3 .3" rotation="0 180 90"></a-obj-model>
         </a-entity>
