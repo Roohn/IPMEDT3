@@ -48,13 +48,13 @@
 
         <!--objecten en MTLs-->
         <a-assets>
-            <a-asset-item id="desk-obj" src="assets/objects/desk.obj"></a-asset-item>
-            <a-asset-item id="desk-mtl" src="assets/objects/desk.mtl"></a-asset-item>
+            <a-asset-item id="desk-dae" src="assets/objects/desk.dae"></a-asset-item>
             <a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
 			<a-asset-item id="case-obj" src="assets/objects/pcCase.obj"></a-asset-item>
             <a-asset-item id="case-mtl" src="assets/objects/pcCase.mtl"></a-asset-item>
             <a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
             <a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
+            <a-asset-item id="monitor-dae" src="assets/objects/monitor.dae"></a-asset-item>
         </a-assets>
 
         <!-- De processor -->
@@ -75,11 +75,15 @@
 
         <!-- Het bureau -->
         <a-entity scale="6 6 6" position="-6 0 -6">
-            <a-obj-model src="#desk-obj" mtl="#desk-mtl"></a-obj-model>
+            <a-collada-model src="#desk-dae"></a-collada-model>
         </a-entity>
 
         <a-entity id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
             <a-collada-model src="#knop-dae"></a-collada-model>
+        </a-entity>
+
+        <a-entity id="monitor" position="13.10 4.16 3.80" scale="9 9 9" rotation="0 130 0">
+            <a-collada-model src="#monitor-dae"></a-collada-model>
         </a-entity>
 		
 
@@ -94,8 +98,7 @@
         <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="25 20 0" rotation="0 -90 0"></a-plane>
 
         <!--informatie over opgepakt component-->
-        <a-entity id="informatie-text" bmfont-text="text: ; color: white; width: 800; lineHeight: 33.00" position="-5.9 4.5 4" rotation="0 90 0"></a-entity>
-        <a-plane id="informatie-monitor" position="-6 5.7 2" rotation="0 90 0" material="shader: flat; color: black; opacity: 0.9" width="4.5" height="3.6"></a-plane>
+        <a-entity id="informatie-text" bmfont-text="text: ;" position="-2.38 5.56 4.92" rotation="0 130 0" scale="0.85 0.85 0.85"></a-entity>
 
     </a-scene>
     <div id="loading">LOADING....</div>

@@ -36,7 +36,7 @@ function getData(dataString){
                     break;
             }
             var informatie = (msg['query']['pages'][pageID]['extract']);
-            $('#informatie-text').attr('bmfont-text', 'text: ' + informatie + '; color: white; width: 800.00; lineHeight: 33.00');
+            $('#informatie-text').attr('bmfont-text', 'text: ' + informatie + '; color: white; width: 1200.00');
         }
     });
 }
