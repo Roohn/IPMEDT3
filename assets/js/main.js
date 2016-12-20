@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    correctAudio = new Audio('assets/audio/correct.mp3');
     stap = 0;
 
     $('#processor').on('click', function () {
@@ -15,7 +16,11 @@ $(document).ready(function () {
             '</a-entity>');
 
         $('#processor-indicator').on('click', function () {
+            // cursor klik animatie
             cursorClick();
+            // play correct sound
+            playCorrectSound();
+
             //motherboard en processor vervangen door combi
             $(this).remove();
             $('#processor-camera').remove();
@@ -35,6 +40,9 @@ $(document).ready(function () {
                 '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
                 '</a-entity>');
             $('#motherboard-indicator').on('click', function () {
+                // play correct sound
+                playCorrectSound();
+
                 //motherboard en processor vervangen door combi
                 $(this).remove();
                 $('#motherboard-camera').remove();
@@ -50,6 +58,11 @@ $(document).ready(function () {
 function cursorClick() {
     // Trigger de cursor om de klik animatie uit te voeren
     document.querySelector('#cursor').emit('cursorclick');
+}
+
+function playCorrectSound(){
+    correctAudio.currentTime = 1.5;
+    correctAudio.play();
 }
 
 function showModelOnCamera(model) {
