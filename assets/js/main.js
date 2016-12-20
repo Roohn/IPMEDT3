@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var stap = 0;
+    stap = 0;
 
     $('#processor').on('click', function () {
         // cursor klik animatie
