@@ -49,20 +49,20 @@
 
         <!--objecten en MTLs-->
         <a-assets>
+			<img id="muurBehang" src="assets/img/behang.jpg">
+			<img id="vloerBehang" src="assets/img/laminaat.jpg">
+			<img id="plafondBehang" src="assets/img/plafond.jpg">
+		
             <a-asset-item id="desk-obj" src="assets/objects/desk.obj"></a-asset-item>
             <a-asset-item id="desk-mtl" src="assets/objects/desk.mtl"></a-asset-item>
-            <a-asset-item id="processor-obj" src="assets/objects/processor.obj"></a-asset-item>
-            <a-asset-item id="processor-mtl" src="assets/objects/processor.mtl"></a-asset-item>
-			<!-- <a-asset-item id="case-obj" src="assets/objects/pcCase.obj"></a-asset-item> -->
-            <!-- <a-asset-item id="case-mtl" src="assets/objects/pcCase.mtl"></a-asset-item> -->
-            <a-asset-item id="motherboard-obj" src="assets/objects/motherboard.obj"></a-asset-item>
-            <a-asset-item id="motherboard-mtl" src="assets/objects/motherboard.mtl"></a-asset-item>
 			<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
             <a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
-			<a-asset-item id="case-obj" src="assets/objects/pcCase.obj"></a-asset-item>
-            <a-asset-item id="case-mtl" src="assets/objects/pcCase.mtl"></a-asset-item>
             <a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
             <a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
+			
+			<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
+			<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
+			<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
         </a-assets>
 
         <!-- De processor -->
@@ -74,7 +74,6 @@
             <a-collada-model src="#caseDae" ></a-collada-model>
 			<a-obj-model visible="false" id="kast-motherboard" src="#motherboard-obj" mtl="#motherboard-mtl" position="0.15 1.96 0.90" rotation="0 180 90" scale="0.0085 0.0085 0.0085"></a-obj-model>
             <a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".2 2.69 .92" scale=".3 .3 .3" rotation="0 180 90"></a-collada-model>
-            <a-obj-model src="#case-obj" mtl="#case-mtl"></a-obj-model>
 			<a-collada-model visible="false" id="kast-motherboard" src="#motherboard-dae" position="0.23 2 0.82" rotation="0 180 90"></a-collada-model>
             <a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
         </a-entity>
@@ -95,14 +94,14 @@
 		
 
         <!-- grond en dak -->
-        <a-plane class="floor" src="assets/img/laminaat.jpg" width="50" height="50" position="0 0 0" rotation="-90 0 0"></a-plane>
-        <a-plane class="roof" src="assets/img/plafond.jpg" width="50" height="50" position="0 25 0" rotation="90 0 0"></a-plane>
+        <a-plane mixin="vloer" position="0 0 0" rotation="-90 0 0"></a-plane>
+        <a-plane mixin="plafond" position="0 25 0" rotation="90 0 0"></a-plane>
 
         <!--de kamer (muren)-->
-        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="0 20 25" rotation="0 180 0"></a-plane>
-        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="0 20 -25"></a-plane>
-        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="-25 20 0" rotation="0 90 0"></a-plane>
-        <a-plane class="wall" src="assets/img/behang.jpg" height="40" width="50" position="25 20 0" rotation="0 -90 0"></a-plane>
+        <a-plane mixin="muur" position="0 20 25" rotation="0 180 0"></a-plane>
+        <a-plane mixin="muur" position="0 20 -25"></a-plane>
+        <a-plane mixin="muur" position="-25 20 0" rotation="0 90 0"></a-plane>
+        <a-plane mixin="muur" position="25 20 0" rotation="0 -90 0"></a-plane>
 
         <!--informatie over opgepakt component-->
         <a-entity id="informatie-text" bmfont-text="text: ; color: white; width: 800; lineHeight: 33.00" position="-5.9 4.5 4" rotation="0 90 0"></a-entity>
