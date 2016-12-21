@@ -12,3 +12,7 @@
     background-position: center;
     text-align: center;
 }
+
+#vrDiv {
+	visibility: hidden;
+}

@@ -1,113 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Desktop Builder - Alpha 1</title>
+	<head>
+		<meta charset="UTF-8">
+		<title>Desktop Builder - Alpha 1</title>
 
-    <!-- Production Version, Minified -->
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-    <script src="assets/js/jquery-3.1.1.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/load.js"></script>
-    <script src="assets/js/APIloader.js"></script>
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
-
-    <!-- Alles in deze tag wordt VR -->
-    <a-scene id="page" visible="false">
-
-        <!--camera-->
-        <a-entity id="camera" camera="userHeight: 5.6" look-controls wasd-controls>
-            <a-entity id="cursor"
-                      position="0 0 -2"
-                      geometry="primitive: ring; radiusOuter: 0.075;
-                      radiusInner: 0.05;"
-                      material="color: cyan; shader: flat"
-                      cursor="fuse: true; fuseTimeout: 800">
-                <a-animation begin="cursorclick" easing="ease-in" attribute="scale"
-                             fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="300"></a-animation>
-                <a-animation begin="fusing" easing="ease-in" attribute="scale"
-                             fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="1500"></a-animation>
-            </a-entity>
-			
-            <a-entity id="tutorial-text" bmfont-text="text: Pak de processor om te beginnen; color: white;" position="-1 3 -4"></a-entity>
-
-            <!-- De processor -->
-            <a-entity id="processor-camera" scale="0.5 0.5 0.5" position="1 -1 -1.5" visible="false">
-                <a-collada-model src="#processor-dae"></a-collada-model>
-            </a-entity>
-
-            <!-- Het moederboard -->
-            <a-entity id="motherboard-camera" position="1 -1 -1.5" visible="false" rotation="25 0 0">
-                <a-collada-model src="#motherboard-dae"></a-collada-model>
-                <a-collada-model src="#processor-dae" position="0.85 0.04 -0.07" scale="0.35 0.35 0.35"></a-collada-model>
-            </a-entity>
-
-        </a-entity>
-
-        <!--objecten en MTLs-->
-        <a-assets>
-			<img id="muurBehang" src="assets/img/behang.jpg">
-			<img id="vloerBehang" src="assets/img/laminaat.jpg">
-			<img id="plafondBehang" src="assets/img/plafond.jpg">
+		<!-- Production Version, Minified -->
+		<script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+		<script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+		<script src="assets/js/jquery-3.1.1.min.js"></script>
+		<script src="assets/js/load.js"></script>
+		<script src="assets/js/main.js"></script>
 		
-            <a-asset-item id="desk-obj" src="assets/objects/desk.obj"></a-asset-item>
-            <a-asset-item id="desk-mtl" src="assets/objects/desk.mtl"></a-asset-item>
-			<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
-            <a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
-            <a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
-            <a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
-			
-			<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
-			<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
-			<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
-        </a-assets>
-
-        <!-- De processor -->
-        <a-entity id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
-            <a-collada-model src="#processor-dae"></a-collada-model>
-        </a-entity>
+		<script src="assets/js/APIloader.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css">
+	</head>
+	<body>
+		 <div id="splashDiv">
+			Welkom bij de VR desktop builder!
 		
-		<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
-            <a-collada-model src="#caseDae" ></a-collada-model>
-			<a-obj-model visible="false" id="kast-motherboard" src="#motherboard-obj" mtl="#motherboard-mtl" position="0.15 1.96 0.90" rotation="0 180 90" scale="0.0085 0.0085 0.0085"></a-obj-model>
-            <a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".2 2.69 .92" scale=".3 .3 .3" rotation="0 180 90"></a-collada-model>
-			<a-collada-model visible="false" id="kast-motherboard" src="#motherboard-dae" position="0.23 2 0.82" rotation="0 180 90"></a-collada-model>
-            <a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
-        </a-entity>
-
-        <a-entity id="motherboard" position="2 4.5 -3.5">
-            <a-collada-model src="#motherboard-dae"></a-collada-model>
-            <a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
-        </a-entity>
-
-        <!-- Het bureau -->
-        <a-entity scale="6 6 6" position="-6 0 -6">
-            <a-obj-model src="#desk-obj" mtl="#desk-mtl"></a-obj-model>
-        </a-entity>
-
-        <a-entity id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
-            <a-collada-model src="#knop-dae"></a-collada-model>
-        </a-entity>
 		
+			<button type="button" id="continueButton">Ga verder</button>
+		</div>
+		<div id="vrDiv">
+			<!-- Alles in deze tag wordt VR -->
+			<a-scene id="page" visible="false">
 
-        <!-- grond en dak -->
-        <a-plane mixin="vloer" position="0 0 0" rotation="-90 0 0"></a-plane>
-        <a-plane mixin="plafond" position="0 25 0" rotation="90 0 0"></a-plane>
+				<!-- camera -->
+				<a-entity id="camera" camera="userHeight: 5.6" look-controls wasd-controls>
+					<a-entity id="cursor"
+							  position="0 0 -2"
+							  geometry="primitive: ring; radiusOuter: 0.075;
+							  radiusInner: 0.05;"
+							  material="color: cyan; shader: flat"
+							  cursor="fuse: true; fuseTimeout: 800">
+						<a-animation begin="cursorclick" easing="ease-in" attribute="scale"
+									 fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="300"></a-animation>
+						<a-animation begin="fusing" easing="ease-in" attribute="scale"
+									 fill="forwards" from="0.1 0.1 0.1" to="1 1 1" dur="1500"></a-animation>
+					</a-entity>
+					
+					<a-entity id="tutorial-text" bmfont-text="text: Pak de processor om te beginnen; color: white;" position="-1 3 -4"></a-entity>
 
-        <!--de kamer (muren)-->
-        <a-plane mixin="muur" position="0 20 25" rotation="0 180 0"></a-plane>
-        <a-plane mixin="muur" position="0 20 -25"></a-plane>
-        <a-plane mixin="muur" position="-25 20 0" rotation="0 90 0"></a-plane>
-        <a-plane mixin="muur" position="25 20 0" rotation="0 -90 0"></a-plane>
+					<!-- De processor -->
+					<a-entity id="processor-camera" scale="0.5 0.5 0.5" position="1 -1 -1.5" visible="false">
+						<a-collada-model src="#processor-dae"></a-collada-model>
+					</a-entity>
 
-        <!--informatie over opgepakt component-->
-        <a-entity id="informatie-text" bmfont-text="text: ; color: white; width: 800; lineHeight: 33.00" position="-5.9 4.5 4" rotation="0 90 0"></a-entity>
-        <a-plane id="informatie-monitor" position="-6 5.7 2" rotation="0 90 0" material="shader: flat; color: black; opacity: 0.9" width="4.5" height="3.6"></a-plane>
+					<!-- Het moederboard -->
+					<a-entity id="motherboard-camera" position="1 -1 -1.5" visible="false" rotation="25 0 0">
+						<a-collada-model src="#motherboard-dae"></a-collada-model>
+						<a-collada-model src="#processor-dae" position="0.85 0.04 -0.07" scale="0.35 0.35 0.35"></a-collada-model>
+					</a-entity>
 
-    </a-scene>
-    <div id="loading">LOADING....</div>
-</body>
+				</a-entity>
+
+				<!-- objecten en MTLs -->
+				<a-assets>
+					<img id="muurBehang" src="assets/img/behang.jpg">
+					<img id="vloerBehang" src="assets/img/laminaat.jpg">
+					<img id="plafondBehang" src="assets/img/plafond.jpg">
+				
+					<a-asset-item id="desk-obj" src="assets/objects/desk.obj"></a-asset-item>
+					<a-asset-item id="desk-mtl" src="assets/objects/desk.mtl"></a-asset-item>
+					<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
+					<a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
+					<a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
+					<a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
+					
+					<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
+					<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
+					<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
+				</a-assets>
+
+				<!-- De processor -->
+				<a-entity id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
+					<a-collada-model src="#processor-dae"></a-collada-model>
+				</a-entity>
+				
+				<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
+					<a-collada-model src="#caseDae" ></a-collada-model>
+					<a-obj-model visible="false" id="kast-motherboard" src="#motherboard-obj" mtl="#motherboard-mtl" position="0.15 1.96 0.90" rotation="0 180 90" scale="0.0085 0.0085 0.0085"></a-obj-model>
+					<a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".2 2.69 .92" scale=".3 .3 .3" rotation="0 180 90"></a-collada-model>
+					<a-collada-model visible="false" id="kast-motherboard" src="#motherboard-dae" position="0.23 2 0.82" rotation="0 180 90"></a-collada-model>
+					<a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
+				</a-entity>
+
+				<a-entity id="motherboard" position="2 4.5 -3.5">
+					<a-collada-model src="#motherboard-dae"></a-collada-model>
+					<a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
+				</a-entity>
+
+				<!-- Het bureau -->
+				<a-entity scale="6 6 6" position="-6 0 -6">
+					<a-obj-model src="#desk-obj" mtl="#desk-mtl"></a-obj-model>
+				</a-entity>
+
+				<a-entity id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
+					<a-collada-model src="#knop-dae"></a-collada-model>
+				</a-entity>
+				
+
+				<!-- grond en dak -->
+				<a-plane mixin="vloer" position="0 0 0" rotation="-90 0 0"></a-plane>
+				<a-plane mixin="plafond" position="0 25 0" rotation="90 0 0"></a-plane>
+
+				<!-- de kamer (muren)--> 
+				<a-plane mixin="muur" position="0 20 25" rotation="0 180 0"></a-plane>
+				<a-plane mixin="muur" position="0 20 -25"></a-plane>
+				<a-plane mixin="muur" position="-25 20 0" rotation="0 90 0"></a-plane>
+				<a-plane mixin="muur" position="25 20 0" rotation="0 -90 0"></a-plane>
+
+				<!-- informatie over opgepakt component -->
+				<a-entity id="informatie-text" bmfont-text="text: ; color: white; width: 800; lineHeight: 33.00" position="-5.9 4.5 4" rotation="0 90 0"></a-entity>
+				<a-plane id="informatie-monitor" position="-6 5.7 2" rotation="0 90 0" material="shader: flat; color: black; opacity: 0.9" width="4.5" height="3.6"></a-plane>
+
+			</a-scene>
+		</div> 
+	</body>
 </html>
