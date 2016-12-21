@@ -1,15 +1,13 @@
-#loading {
+#logo-gif {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(192, 192, 192, 0.5);
-    background-image: url("../img/loading.gif");
-    background-repeat: no-repeat;
-    background-position: center;
+    margin: 0 auto;
     text-align: center;
 }
 
+#splashDiv{
+    text-align: center;
+}
+
+body{
+    background-color: #dcdcdc;
+}

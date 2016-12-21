@@ -15,11 +15,9 @@
 		<link rel="stylesheet" href="assets/css/main.css">
 	</head>
 	<body>
-		 <div id="splashDiv">
-			Welkom bij de VR desktop builder!
-		
-		
-			<button type="button" id="continueButton">Ga verder</button>
+		<div id="splashDiv">
+			<h1>Welkom bij de VR desktop builder!</h1>
+			<img id="logo-gif" src="assets/img/logo-gif.gif"/>
 		</div>
 		<div id="vrDiv" style="visibility: hidden">
 			<!-- Alles in deze tag wordt VR -->
@@ -61,100 +59,86 @@
 						<a-collada-model src="#processor-dae" position="0.85 0.04 -0.07" scale="0.35 0.35 0.35"></a-collada-model>
 						<a-collada-model src="#koelblok-dae"  position="0.85 0.04 -0.07" scale="0.35 0.35 0.35"></a-collada-model>
 					</a-entity>
-
-					
-					
 				</a-entity>
 
-			
-				
-			<!--objecten en MTLs-->
-			<a-assets>
-				<img id="muurBehang" src="assets/img/behang.jpg">
-				<img id="vloerBehang" src="assets/img/laminaat.jpg">
-				<img id="plafondBehang" src="assets/img/plafond.jpg">
+				<!--objecten en MTLs-->
+				<a-assets>
+					<img id="muurBehang" src="assets/img/behang.jpg">
+					<img id="vloerBehang" src="assets/img/laminaat.jpg">
+					<img id="plafondBehang" src="assets/img/plafond.jpg">
 
-				<a-asset-item id="desk-dae" src="assets/objects/desk.dae"></a-asset-item>
-				<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
-				<a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
-				<a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
-				<a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
-				<a-asset-item id="monitor-dae" src="assets/objects/monitor.dae"></a-asset-item>
-				<a-asset-item id="voeding-dae" src="assets/objects/voeding.dae"></a-asset-item>
-				<a-asset-item id="koelblok-dae" src="assets/objects/koelblok.dae"></a-asset-item>
-				
-				<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
-				<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
-				<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
-			</a-assets>
+					<a-asset-item id="desk-dae" src="assets/objects/desk.dae"></a-asset-item>
+					<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
+					<a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
+					<a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
+					<a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
+					<a-asset-item id="monitor-dae" src="assets/objects/monitor.dae"></a-asset-item>
+					<a-asset-item id="voeding-dae" src="assets/objects/voeding.dae"></a-asset-item>
+					<a-asset-item id="koelblok-dae" src="assets/objects/koelblok.dae"></a-asset-item>
 
-			<!-- Het koelblok -->
-			<a-entity id="koelblok" scale=".3 .3 .3" position="1 4.5 -3">
-				<a-collada-model src="#koelblok-dae"></a-collada-model>
-			</a-entity>
-			
-			
-			<!-- De processor -->
-			<a-entity id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
-				<a-collada-model src="#processor-dae"></a-collada-model>
-			</a-entity>
-			
-			
-			<!-- De PC kast -->
-			<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
-				<a-collada-model src="#caseDae" ></a-collada-model>
-				<a-collada-model visible="false" id="kast-motherboard" src="#motherboard-dae" position="0.23 2 0.82" rotation="0 180 90"></a-collada-model>
-				<a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
-				<a-collada-model visible="false" id="kast-koelblok" src="#koelblok-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
-				<a-collada-model visible="false" id="kast-voeding" src="#voeding-dae" position="0.6 0.08 1.12" scale=".55 .5 .5" ></a-collada-model>
-			</a-entity>
+					<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
+					<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
+					<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
+				</a-assets>
 
-			<!-- Het moederbord -->
-			<a-entity id="motherboard" position="3 4.5 -3.5">
-				<a-collada-model src="#motherboard-dae"></a-collada-model>
-				<a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
-				<a-collada-model visible="false" id="combi-koelblok" src="#koelblok-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
-			</a-entity>
+				<!-- Het koelblok -->
+				<a-entity id="koelblok" scale=".3 .3 .3" position="1 4.5 -3">
+					<a-collada-model src="#koelblok-dae"></a-collada-model>
+				</a-entity>
 
-			<!-- Het bureau -->
-			<a-entity scale="6 6 6" position="-6 0 -6">
-				<a-collada-model src="#desk-dae"></a-collada-model>
-			</a-entity>
+				<!-- De processor -->
+				<a-entity id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
+					<a-collada-model src="#processor-dae"></a-collada-model>
+				</a-entity>
 
-			<!-- Rode infoknop -->
-			<a-entity id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
-				<a-collada-model src="#knop-dae"></a-collada-model>
-			</a-entity>
+				<!-- De PC kast -->
+				<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
+					<a-collada-model src="#caseDae" ></a-collada-model>
+					<a-collada-model visible="false" id="kast-motherboard" src="#motherboard-dae" position="0.23 2 0.82" rotation="0 180 90"></a-collada-model>
+					<a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
+					<a-collada-model visible="false" id="kast-koelblok" src="#koelblok-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
+					<a-collada-model visible="false" id="kast-voeding" src="#voeding-dae" position="0.6 0.08 1.12" scale=".55 .5 .5" ></a-collada-model>
+				</a-entity>
 
-			<!-- De monitor voor informatie -->
-			<a-entity id="monitor" position="13.10 4.16 3.80" scale="9 9 9" rotation="0 130 0">
-				<a-collada-model src="#monitor-dae"></a-collada-model>
-			</a-entity>
+				<!-- Het moederbord -->
+				<a-entity id="motherboard" position="3 4.5 -3.5">
+					<a-collada-model src="#motherboard-dae"></a-collada-model>
+					<a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
+					<a-collada-model visible="false" id="combi-koelblok" src="#koelblok-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
+				</a-entity>
 
-			<!-- De voeding op het bureau -->
-			<a-entity id="voeding" position="0 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
-				<a-collada-model src="#voeding-dae"></a-collada-model>
-			</a-entity>
-			
-				
+				<!-- Het bureau -->
+				<a-entity scale="6 6 6" position="-6 0 -6">
+					<a-collada-model src="#desk-dae"></a-collada-model>
+				</a-entity>
 
-			<!-- grond en dak -->
-			<a-plane mixin="vloer" position="0 0 0" rotation="-90 0 0"></a-plane>
-			<a-plane mixin="plafond" position="0 25 0" rotation="90 0 0"></a-plane>
+				<!-- Rode infoknop -->
+				<a-entity id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
+					<a-collada-model src="#knop-dae"></a-collada-model>
+				</a-entity>
 
-			<!-- de kamer (muren)--> 
-			<a-plane mixin="muur" position="0 20 25" rotation="0 180 0"></a-plane>
-			<a-plane mixin="muur" position="0 20 -25"></a-plane>
-			<a-plane mixin="muur" position="-25 20 0" rotation="0 90 0"></a-plane>
-			<a-plane mixin="muur" position="25 20 0" rotation="0 -90 0"></a-plane>
+				<!-- De monitor voor informatie -->
+				<a-entity id="monitor" position="13.10 4.16 3.80" scale="9 9 9" rotation="0 130 0">
+					<a-collada-model src="#monitor-dae"></a-collada-model>
+				</a-entity>
 
+				<!-- De voeding op het bureau -->
+				<a-entity id="voeding" position="0 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
+					<a-collada-model src="#voeding-dae"></a-collada-model>
+				</a-entity>
 
-			<!-- informatie over opgepakt component -->
-			<a-entity id="informatie-text" bmfont-text="text: ; color: white; width: 800; lineHeight: 33.00" position="-5.9 4.5 4" rotation="0 90 0"></a-entity>
-			<a-plane id="informatie-monitor" position="-6 5.7 2" rotation="0 90 0" material="shader: flat; color: black; opacity: 0.9" width="4.5" height="3.6"></a-plane>
+				<!-- grond en dak -->
+				<a-plane mixin="vloer" position="0 0 0" rotation="-90 0 0"></a-plane>
+				<a-plane mixin="plafond" position="0 25 0" rotation="90 0 0"></a-plane>
 
-			<!--informatie over opgepakt component-->
-			<a-entity id="informatie-text" bmfont-text="text: ;" position="-2.38 5.56 4.92" rotation="0 130 0" scale="0.85 0.85 0.85"></a-entity>
+				<!-- de kamer (muren)-->
+				<a-plane mixin="muur" position="0 20 25" rotation="0 180 0"></a-plane>
+				<a-plane mixin="muur" position="0 20 -25"></a-plane>
+				<a-plane mixin="muur" position="-25 20 0" rotation="0 90 0"></a-plane>
+				<a-plane mixin="muur" position="25 20 0" rotation="0 -90 0"></a-plane>
+
+				<!--informatie over opgepakt component-->
+				<a-entity id="informatie-text" bmfont-text="text: ;" position="-2.38 5.56 4.92" rotation="0 130 0" scale="0.85 0.85 0.85"></a-entity>
 
 
 			</a-scene>
