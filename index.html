@@ -59,6 +59,7 @@
             <a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
             <a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
             <a-asset-item id="monitor-dae" src="assets/objects/monitor.dae"></a-asset-item>
+            <a-asset-item id="voeding-dae" src="assets/objects/voeding.dae"></a-asset-item>
 			
 			<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
 			<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
@@ -92,6 +93,10 @@
 
         <a-entity id="monitor" position="13.10 4.16 3.80" scale="9 9 9" rotation="0 130 0">
             <a-collada-model src="#monitor-dae"></a-collada-model>
+        </a-entity>
+
+        <a-entity id="voeding" position="0 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
+            <a-collada-model src="#voeding-dae"></a-collada-model>
         </a-entity>
 		
 
