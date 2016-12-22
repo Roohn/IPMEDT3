@@ -30,7 +30,8 @@
 							  geometry="primitive: ring; radiusOuter: 0.075;
 							  radiusInner: 0.05;"
 							  material="color: cyan; shader: flat"
-							  cursor="fuse: true; fuseTimeout: 800">
+							  cursor="fuse: true; fuseTimeout: 800"
+							  raycaster="far: 20; interval: 1000; objects: .clickable">
 						<a-animation begin="cursorclick" easing="ease-in" attribute="scale"
 									 fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="300"></a-animation>
 						<a-animation begin="cursorclick" easing="ease-in" attribute="scale"
@@ -81,13 +82,13 @@
 					<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
 				</a-assets>
 
-				<!-- Het koelblok -->
-				<a-entity id="koelblok" scale=".3 .3 .3" position="1 4.5 -3">
+				<!-- Het koelblok op het bureau -->
+				<a-entity class="clickable" id="koelblok" scale=".3 .3 .3" position="1 4.5 -3">
 					<a-collada-model src="#koelblok-dae"></a-collada-model>
 				</a-entity>
 
-				<!-- De processor -->
-				<a-entity id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
+				<!-- De processor op het bureau -->
+				<a-entity class="clickable" id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
 					<a-collada-model src="#processor-dae"></a-collada-model>
 				</a-entity>
 
@@ -101,7 +102,7 @@
 				</a-entity>
 
 				<!-- Het moederbord -->
-				<a-entity id="motherboard" position="3 4.5 -3.5">
+				<a-entity class="clickable" id="motherboard" position="3 4.5 -3.5">
 					<a-collada-model src="#motherboard-dae"></a-collada-model>
 					<a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
 					<a-collada-model visible="false" id="combi-koelblok" src="#koelblok-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
@@ -113,7 +114,7 @@
 				</a-entity>
 
 				<!-- Rode infoknop -->
-				<a-entity id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
+				<a-entity class="clickable" id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
 					<a-collada-model src="#knop-dae"></a-collada-model>
 				</a-entity>
 
@@ -123,7 +124,7 @@
 				</a-entity>
 
 				<!-- De voeding op het bureau -->
-				<a-entity id="voeding" position="0 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
+				<a-entity class="clickable" id="voeding" position="0 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
 					<a-collada-model src="#voeding-dae"></a-collada-model>
 				</a-entity>
 
