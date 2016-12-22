@@ -1,5 +1,6 @@
 $(document).ready(function () {
     correctAudio = new Audio('assets/audio/correct.mp3');
+    incorrectAudio = new Audio('assets/audio/incorrect.mp3');
     stap = 0;
 
     $('#processor').on('click', function () {
@@ -51,6 +52,9 @@ $(document).ready(function () {
 				
 			});
 		}
+		else{
+		    playIncorrectSound();
+        }
 	});
 
     $('#motherboard').on('click', function () {
@@ -75,6 +79,9 @@ $(document).ready(function () {
                 stap = 3;
             });
         }
+        else{
+            playIncorrectSound();
+        }
     });
 	
 	$("#voeding").on("click", function() {
@@ -94,6 +101,9 @@ $(document).ready(function () {
 				stap = 4;
 			});
 		}
+        else{
+            playIncorrectSound();
+        }
 	});
 	
 	
@@ -107,6 +117,10 @@ function cursorClick() {
 function playCorrectSound(){
     correctAudio.currentTime = 1.5;
     correctAudio.play();
+}
+
+function playIncorrectSound() {
+    incorrectAudio.play();
 }
 
 function showModelOnCamera(model) {

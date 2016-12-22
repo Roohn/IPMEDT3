@@ -3,8 +3,15 @@ $(document).ready(function() {
         if (stap == 0) {
             getData('Processor_(computer)');
         }
-        if (stap == 1) {
+        if (stap == 2) {
             getData('Moederbord');
+        }
+        if (stap == 3) {
+            getData('Voeding_(elektronica)');
+        }
+        if (stap == 4) {
+            $('#informatie-text').attr('visible', 'false');
+            $('#informatie-logo').attr('visible', 'true');
         }
         // TODO: alle andere stappen toevoegen
     })
