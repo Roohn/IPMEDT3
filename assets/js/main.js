@@ -14,9 +14,14 @@ $(document).ready(function () {
         $('#page').append('<a-entity class="clickable" id="processor-indicator" position="3.85 4.55 -3.6">' +
             '<a-plane class="indicator" height=".6" width=".7" color="yellow" rotation="-90 0 0"></a-plane>' +
             '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="1500"></a-animation>' +
-            '</a-entity>');
+            '</a-entity>' + 
+			'<a-entity class="clickable" id="processor-klik" position="3.88 4.56 -3.6">' +
+			'<a-plane height=".6" width=".7" opacity="0" rotation="-90 0 0"></a-plane>' +
+			'</a-entity>'
+			
+			);
 
-        $('#processor-indicator').on('click', function () {
+        $('#processor-klik').on('click', function () {
             // cursor klik animatie
             cursorClick();
             // play correct sound
@@ -24,6 +29,7 @@ $(document).ready(function () {
 
             //motherboard en processor vervangen door combi
             $(this).remove();
+			$("#processor-indicator").remove();
             $('#processor-camera').remove();
 
             //combi van moederboard en processor
@@ -39,12 +45,18 @@ $(document).ready(function () {
 			$('#page').append('<a-entity class="clickable" id="koelblok-indicator" position="3.85 4.65 -3.6">' +
                 '<a-plane class="indicator" height=".6" width=".7" color="yellow" rotation="-90 0 0"></a-plane>' +
                 '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
-                '</a-entity>');
+                '</a-entity>'
 				
-			$("#koelblok-indicator").on("click", function() {
+				+ 
+			'<a-entity class="clickable" id="koelblok-klik" position="3.85 4.66 -3.6">' +
+			'<a-plane height=".6" width=".7" opacity="0" rotation="-90 0 0"></a-plane>' +
+			'</a-entity>');
+				
+			$("#koelblok-klik").on("click", function() {
 				playCorrectSound();
 				
 				$(this).remove();
+				$("#koelblok-indicator").remove();
 				$("#koelblok-camera").remove();
 				
 				$("#combi-koelblok").attr("visible", true);
@@ -64,13 +76,17 @@ $(document).ready(function () {
             $('#page').append('<a-entity class="clickable" id="motherboard-indicator" position="-3.3 6.46 -2.68">' +
                 '<a-plane class="indicator" height="2.1" width="2.2" color="yellow" rotation="0 45 0"></a-plane>' +
                 '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
-                '</a-entity>');
-            $('#motherboard-indicator').on('click', function () {
+                '</a-entity>'+ 
+				'<a-entity class="clickable" id="motherboard-klik" position="-3.29 6.45 -2.68">' +
+				'<a-plane height="2.1" width="2.2" opacity="0" rotation="0 45 0"></a-plane>' +
+				'</a-entity>');
+            $('#motherboard-klik').on('click', function () {
                 // play correct sound
                 playCorrectSound();
 
                 //motherboard en processor vervangen door combi
                 $(this).remove();
+				$("#motherboard-indicator").remove();
                 $('#motherboard-camera').remove();
                 $('#kast-motherboard').attr('visible', true);
                 $('#kast-processor').attr('visible', true);
@@ -91,10 +107,14 @@ $(document).ready(function () {
 			$('#page').append('<a-entity class="clickable" id="voeding-indicator" position="-3.51 4.87 -2.45">' +
                 '<a-plane class="indicator" height="0.77" width="1.554" color="yellow" rotation="0 45 0"></a-plane>' +
                 '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
-                '</a-entity>');
-			$("#voeding-indicator").on("click", function() {
+                '</a-entity>'+ 
+				'<a-entity class="clickable" id="voeding-klik" position="-3.50 4.88 -2.45">' +
+				'<a-plane height="0.77" width="1.554" opacity="0" rotation="0 45 0"></a-plane>' +
+				'</a-entity>');
+			$("#voeding-klik").on("click", function() {
 				playCorrectSound();
 				$(this).remove();
+				$("#voeding-indicator").remove();
 				$("#voeding-camera").remove();
 				$("#kast-voeding").attr("visible", true);
 				
