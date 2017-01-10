@@ -1,13 +1,36 @@
-#logo-gif {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+html{
+    overflow-x: hidden;
 }
-
-#splashDiv{
-    text-align: center;
-}
-
 body{
     background-color: #dcdcdc;
+}
+
+/*navbar*/
+#headerimg{
+    height: 100%;
+}
+
+.navbar-brand {
+    padding: 10px 10px;
+}
+
+.navbar{
+    margin-bottom: 0;
+}
+
+/*screenshot*/
+#screenshot{
+    width: 100%;
+}
+.page-header{
+    margin: 0;
+    padding-bottom: 0;
+    text-align: center;
+    border-bottom: none;
+}
+.container{
+    margin-top: -45px;
+    z-index: 1;
+    padding-top: 45px;
+    min-height: 400px;
 }

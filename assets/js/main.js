@@ -203,11 +203,9 @@ $(document).ready(function () {
 
 function makeLines(){
     //laatste stap!! Trek lijnen.
-    if(stap == 4){
-        $("#beginLine").attr("visible", true);
-        $("#motherboardLine").attr("visible", true);
-        $("#processorLine").attr("visible", true);
-    }
+	$("#beginLine").attr("visible", true);
+	$("#motherboardLine").attr("visible", true);
+	$("#processorLine").attr("visible", true);
 }
 
 function cursorClick() {

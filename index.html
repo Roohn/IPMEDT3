@@ -2,29 +2,24 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Desktop Builder - Alpha 2</title>
+		<title>Desktop Builder - Alpha 3</title>
 
 		<!-- Production Version, Minified -->
 		<script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
 		<script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
 		<script src="assets/js/jquery-3.1.1.min.js"></script>
 		<script src="assets/js/three3DExtras.min.js"></script>
-		<script src="assets/js/load.js"></script>
+
+		<!--Eigen assets-->
 		<script src="assets/js/APIloader.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/lijn.js"></script>
 
-		<link rel="stylesheet" href="assets/css/main.css">
 	</head>
 	<body>
-		<div id="splashDiv">
-			<h1>Welkom bij de VR desktop builder!</h1>
-			<img id="logo-gif" src="assets/img/logo-gif.gif"/>
-		</div>
-		<div id="vrDiv" style="visibility: hidden">
+		<div id="vrDiv">
 			<!-- Alles in deze tag wordt VR -->
 			<a-scene id="page">
-
 				<!-- camera -->
 				<a-entity id="camera" camera="userHeight: 5.6" look-controls wasd-controls>
 					<a-entity id="cursor"
