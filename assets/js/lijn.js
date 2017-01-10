@@ -10,7 +10,6 @@ function makeLine(entity, gravity){
     cursorClick();
     //alle lijnen zijn gemaakt
     if (aantalLijnen >= MAX_LIJNEN){
-        stap = 5;
         $("#beginLine").attr("visible", false);
         $("#motherboardLine").attr("visible", false);
         $("#processorLine").attr("visible", false);
