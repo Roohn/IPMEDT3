@@ -21,6 +21,9 @@ $(document).ready(function () {
 			
 			);
 
+        //laat info op scherm zien
+        APIscherm();
+
         $('#processor-klik').on('click', function () {
             // cursor klik animatie
             cursorClick();
@@ -51,6 +54,9 @@ $(document).ready(function () {
 			'<a-entity class="clickable" id="koelblok-klik" position="3.85 4.66 -3.6">' +
 			'<a-plane height=".6" width=".7" opacity="0" rotation="-90 0 0"></a-plane>' +
 			'</a-entity>');
+
+            //laat info op scherm zien
+            APIscherm();
 				
 			$("#koelblok-klik").on("click", function() {
 				playCorrectSound();
@@ -80,6 +86,10 @@ $(document).ready(function () {
 				'<a-entity class="clickable" id="motherboard-klik" position="-3.29 6.45 -2.68">' +
 				'<a-plane height="2.1" width="2.2" opacity="0" rotation="0 45 0"></a-plane>' +
 				'</a-entity>');
+
+            //laat info op scherm zien
+            APIscherm();
+
             $('#motherboard-klik').on('click', function () {
                 // play correct sound
                 playCorrectSound();
@@ -111,6 +121,10 @@ $(document).ready(function () {
 				'<a-entity class="clickable" id="voeding-klik" position="-3.50 4.88 -2.45">' +
 				'<a-plane height="0.77" width="1.554" opacity="0" rotation="0 45 0"></a-plane>' +
 				'</a-entity>');
+
+            //laat info op scherm zien
+            APIscherm();
+
 			$("#voeding-klik").on("click", function() {
 				playCorrectSound();
 				$(this).remove();
@@ -119,15 +133,23 @@ $(document).ready(function () {
 				$("#kast-voeding").attr("visible", true);
 				
 				stap = 4;
+                makeLines();
 			});
 		}
         else{
             playIncorrectSound();
         }
 	});
-	
-	
 });
+
+function makeLines(){
+    //laatste stap!! Trek lijnen.
+    if(stap == 4){
+        $("#beginLine").attr("visible", true);
+        $("#motherboardLine").attr("visible", true);
+        $("#processorLine").attr("visible", true);
+    }
+}
 
 function cursorClick() {
     // Trigger de cursor om de klik animatie uit te voeren

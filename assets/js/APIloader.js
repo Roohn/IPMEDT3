@@ -1,21 +1,22 @@
-$(document).ready(function() {
-    $('#infoknop').on('click', function () {
-        if (stap == 0) {
-            getData('Processor_(computer)');
-        }
-        if (stap == 2) {
-            getData('Moederbord');
-        }
-        if (stap == 3) {
-            getData('Voeding_(elektronica)');
-        }
-        if (stap == 4) {
-            $('#informatie-text').attr('visible', 'false');
-            $('#informatie-logo').attr('visible', 'true');
-        }
-        // TODO: alle andere stappen toevoegen
-    })
-});
+function APIscherm() {
+    if (stap == 0) {
+        getData('Processor_(computer)');
+    }
+    if (stap == 1) {
+        getData('Koelplaat');
+    }
+    if (stap == 2) {
+        getData('Moederbord');
+    }
+    if (stap == 3) {
+        getData('Voeding_(elektronica)');
+    }
+    if (stap == 4) {
+        $('#informatie-text').attr('visible', 'false');
+        $('#informatie-logo').attr('visible', 'true');
+    }
+    // TODO: alle andere stappen toevoegen
+}
 
 function getData(dataString){
     $.ajax({
@@ -41,6 +42,8 @@ function getData(dataString){
                 case "Videokaart":
                     pageID = 23292;
                     break;
+                case "Koelplaat":
+                    pageID = 1240351;
             }
             var informatie = (msg['query']['pages'][pageID]['extract']);
             $('#informatie-text').attr('bmfont-text', 'text: ' + informatie + '; color: white; width: 1200.00');
