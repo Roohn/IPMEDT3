@@ -8,8 +8,10 @@
 		<script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
 		<script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
 		<script src="assets/js/jquery-3.1.1.min.js"></script>
+		<script src="assets/js/three3DExtras.min.js"></script>
 		<script src="assets/js/load.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script src="assets/js/lijn.js"></script>
 		
 		<script src="assets/js/APIloader.js"></script>
 		<link rel="stylesheet" href="assets/css/main.css">
@@ -84,6 +86,7 @@
 					<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
 					<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
 					<a-mixin id="windowslogo" geometry="primitive: plane; height: 3.5; width: 4;"material="src:#windows-logo;" ></a-mixin>
+					<a-mixin id="cable" line="color: #E20049"></a-mixin>
 				</a-assets>
 
 				<!-- Het koelblok op het bureau -->
@@ -101,7 +104,7 @@
 					<a-collada-model src="#caseDae" ></a-collada-model>
 					<a-collada-model visible="false" id="kast-motherboard" src="#motherboard-dae" position="0.23 2 0.82" rotation="0 180 90"></a-collada-model>
 					<a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
-					<a-collada-model visible="false" id="kast-koelblok" src="#koelblok-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
+					<a-collada-model visible="false" id="kast-koelblok" src="#koelblok-dae" position=".31 2.81 .94" scale=".30 .30 .30" rotation="0 180 90"></a-collada-model>
 					<a-collada-model visible="false" id="kast-voeding" src="#voeding-dae" position="0.6 0.08 1.12" scale=".55 .5 .5" ></a-collada-model>
 				</a-entity>
 
@@ -146,6 +149,9 @@
 				<a-entity id="informatie-text" bmfont-text="text: ;" position="-2.38 5.56 4.92" rotation="0 130 0" scale="0.85 0.85 0.85"></a-entity>
 				<a-image visible="false" id="informatie-logo" mixin="windowslogo" position="-4.06 6.84 2.93" rotation="0 130 0" scale="0.85 0.85 0.85"></a-image>
 
+				<a-cylinder visible="false" id="beginLine" class="clickable" color="yellow" height="0.5" radius="0.1" position="-2.73 4.99 -1.9" rotation="-56.15 41.83 -88.81" onclick="makeLine(this, 0.2)"></a-cylinder>
+				<a-plane visible="false" id="motherboardLine" class="clickable" color="yellow" height="0.45" width="0.15" position="-2.79 7.5 -2.75" rotation="0 45 0" onclick="makeLine(this, 0.2)"></a-plane>
+				<a-plane visible="false" id="processorLine" class="clickable" color="yellow" height="0.2" width="0.2" position="-3.64 7.69 -1.8" rotation="0 45 0" onclick="makeLine(this, 0.2)"></a-plane>
 
 			</a-scene>
 		</div> 

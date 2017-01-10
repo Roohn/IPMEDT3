@@ -119,15 +119,23 @@ $(document).ready(function () {
 				$("#kast-voeding").attr("visible", true);
 				
 				stap = 4;
+                makeLines();
 			});
 		}
         else{
             playIncorrectSound();
         }
 	});
-	
-	
 });
+
+function makeLines(){
+    //laatste stap!! Trek lijnen.
+    if(stap == 4){
+        $("#beginLine").attr("visible", true);
+        $("#motherboardLine").attr("visible", true);
+        $("#processorLine").attr("visible", true);
+    }
+}
 
 function cursorClick() {
     // Trigger de cursor om de klik animatie uit te voeren
