@@ -94,6 +94,7 @@
 					<a-asset-item id="koelblok-dae" src="assets/objects/koelblok.dae"></a-asset-item>
 					<a-asset-item id="videokaart-dae" src="assets/objects/videokaart.dae"></a-asset-item>
 					<a-asset-item id="hardeschijf-dae" src="assets/objects/hardeschijf.dae"></a-asset-item>
+					<a-asset-item id="ram-dae" src="assets/objects/ram.dae"></a-asset-item>
 
 					<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
 					<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
@@ -102,6 +103,11 @@
 					<a-mixin id="cable" line="color: #E20049"></a-mixin>
 				</a-assets>
 
+				<!-- Ram op het bureau -->
+				<a-entity class="clickable" id="ram" scale="10 10 10" position="1 5.5 -3.5">
+					<a-collada-model src="#ram-dae"></a-collada-model>
+				</a-entity>
+				
 				<!-- Het koelblok op het bureau -->
 				<a-entity class="clickable" id="koelblok" scale=".3 .3 .3" position="1 4.5 -3.22">
 					<a-collada-model src="#koelblok-dae"></a-collada-model>
