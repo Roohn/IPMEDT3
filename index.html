@@ -79,6 +79,8 @@
 					<a-asset-item id="monitor-dae" src="assets/objects/monitor.dae"></a-asset-item>
 					<a-asset-item id="voeding-dae" src="assets/objects/voeding.dae"></a-asset-item>
 					<a-asset-item id="koelblok-dae" src="assets/objects/koelblok.dae"></a-asset-item>
+					<a-asset-item id="videokaart-dae" src="assets/objects/videokaart.dae"></a-asset-item>
+					<a-asset-item id="hardeschijf-dae" src="assets/objects/hardeschijf.dae"></a-asset-item>
 
 					<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
 					<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
@@ -87,12 +89,12 @@
 				</a-assets>
 
 				<!-- Het koelblok op het bureau -->
-				<a-entity class="clickable" id="koelblok" scale=".3 .3 .3" position="1 4.5 -3">
+				<a-entity class="clickable" id="koelblok" scale=".3 .3 .3" position="1 4.5 -3.22">
 					<a-collada-model src="#koelblok-dae"></a-collada-model>
 				</a-entity>
 
 				<!-- De processor op het bureau -->
-				<a-entity class="clickable" id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3">
+				<a-entity class="clickable" id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3.22">
 					<a-collada-model src="#processor-dae"></a-collada-model>
 				</a-entity>
 
@@ -103,6 +105,14 @@
 					<a-collada-model visible="false" id="kast-processor" src="#processor-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
 					<a-collada-model visible="false" id="kast-koelblok" src="#koelblok-dae" position=".25 2.81 .96" scale=".35 .35 .35" rotation="0 180 90"></a-collada-model>
 					<a-collada-model visible="false" id="kast-voeding" src="#voeding-dae" position="0.6 0.08 1.12" scale=".55 .5 .5" ></a-collada-model>
+				</a-entity>
+				
+				<a-entity id="videokaart" scale="5.5 5.5 5.5" position="1.10 4.63 -5.10">
+					<a-collada-model src="#videokaart-dae"></a-collada-model>
+				</a-entity>
+				
+				<a-entity id="hardeschijf" position="1.34 4.63 -5.1">
+					<a-collada-model src="#hardeschijf-dae"></a-collada-model>
 				</a-entity>
 
 				<!-- Het moederbord -->
@@ -128,7 +138,7 @@
 				</a-entity>
 
 				<!-- De voeding op het bureau -->
-				<a-entity class="clickable" id="voeding" position="0 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
+				<a-entity class="clickable" id="voeding" position="-0.52 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
 					<a-collada-model src="#voeding-dae"></a-collada-model>
 				</a-entity>
 
