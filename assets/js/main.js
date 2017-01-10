@@ -24,7 +24,7 @@ $(document).ready(function () {
         //laat info op scherm zien
         APIscherm();
 
-        $('#processor-klik').on('click', function () {
+        $('#processor-klik').on('click', function () {	
             // cursor klik animatie
             cursorClick();
             // play correct sound
@@ -133,12 +133,71 @@ $(document).ready(function () {
 				$("#kast-voeding").attr("visible", true);
 				
 				stap = 4;
-                makeLines();
+                
 			});
 		}
         else{
             playIncorrectSound();
         }
+	});
+	
+	$("#videokaart").on("click", function() {
+		if (stap == 4) {
+			cursorClick();
+			showModelOnCamera(this.id);
+			$('#page').append('<a-entity class="clickable" id="videokaart-indicator" position="-3.23 5.6 -2.05">' +
+                '<a-plane class="indicator" height="0.2" width="1.45" color="yellow" rotation="0 45 0"></a-plane>' +
+                '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
+                '</a-entity>'+ 
+				'<a-entity class="clickable" id="videokaart-klik" position="-3.22 5.6 -2.06">' +
+				'<a-plane height="0.2" width="1.45" opacity="0" rotation="0 45 0"></a-plane>' +
+				'</a-entity>');
+				
+			APIscherm();
+			
+			$("#videokaart-klik").on("click", function() {
+				playCorrectSound();
+				$(this).remove();
+				$("#videokaart-indicator").remove();
+				$("#videokaart-camera").remove();
+				$("#kast-videokaart").attr("visible", true);
+				
+				stap = 5;
+			});
+		}
+		else {
+			playIncorrectSound();
+		}
+	});
+	
+	$("#hardeschijf").on("click", function() {
+		if (stap == 5){
+			cursorClick();
+			showModelOnCamera(this.id);
+			$('#page').append('<a-entity class="clickable" id="hardeschijf-indicator" position="-1.61 7.25 -2.82">' +
+                '<a-plane class="indicator" height="0.25" width="1.45" color="yellow" rotation="0 45 0"></a-plane>' +
+                '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
+                '</a-entity>'+ 
+				'<a-entity class="clickable" id="hardeschijf-klik" position="-1.62 7.25 -2.83">' +
+				'<a-plane height="0.25" width="1.45" opacity="0" rotation="0 45 0"></a-plane>' +
+				'</a-entity>');
+				
+			APIscherm();
+			
+			$("#hardeschijf-klik").on("click", function() {
+				playCorrectSound();
+				$(this).remove();
+				$("#hardeschijf-indicator").remove();
+				$("#hardeschijf-camera").remove();
+				$("#kast-hardeschijf").attr("visible", true);
+				
+				stap = 6;
+				makeLines();
+			});
+		}
+		else {
+			playIncorrectSound();
+		}
 	});
 });
 
