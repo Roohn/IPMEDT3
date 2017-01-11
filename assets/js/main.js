@@ -15,8 +15,8 @@ $(document).ready(function () {
             '<a-plane class="indicator" height=".6" width=".7" color="yellow" rotation="-90 0 0"></a-plane>' +
             '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="1500"></a-animation>' +
             '</a-entity>' + 
-			'<a-entity class="clickable" id="processor-klik" position="3.88 4.56 -3.6">' +
-			'<a-plane height=".6" width=".7" opacity="0" rotation="-90 0 0"></a-plane>' +
+			'<a-entity class="clickable" id="processor-klik" position="3.62 4.87 -3.29" rotation="90 315 0">' +
+			'<a-plane height=".7" width=".8" opacity="0" rotation="-90 0 0"></a-plane>' +
 			'</a-entity>'
 			
 			);
@@ -51,8 +51,8 @@ $(document).ready(function () {
                 '</a-entity>'
 				
 				+ 
-			'<a-entity class="clickable" id="koelblok-klik" position="3.85 4.66 -3.6">' +
-			'<a-plane height=".6" width=".7" opacity="0" rotation="-90 0 0"></a-plane>' +
+			'<a-entity class="clickable" id="koelblok-klik" position="3.55 4.91 -3.12" rotation="90 315 0">' +
+			'<a-plane height=".7" width=".8" opacity="0"  rotation="-90 0 0"></a-plane>' +
 			'</a-entity>');
 
             //laat info op scherm zien
@@ -142,16 +142,17 @@ $(document).ready(function () {
         }
 	});
 	
+	
 	$("#videokaart").on("click", function() {
 		if (stap == 4) {
 			cursorClick();
 			showModelOnCamera(this.id);
-			$('#page').append('<a-entity class="clickable" id="videokaart-indicator" position="-3.23 5.6 -2.05">' +
+			$('#page').append('<a-entity class="clickable" id="videokaart-indicator" position="-3.23 5.79 -2.05">' +
                 '<a-plane class="indicator" height="0.2" width="1.45" color="yellow" rotation="0 45 0"></a-plane>' +
                 '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
                 '</a-entity>'+ 
-				'<a-entity class="clickable" id="videokaart-klik" position="-3.22 5.6 -2.06">' +
-				'<a-plane height="0.2" width="1.45" opacity="0" rotation="0 45 0"></a-plane>' +
+				'<a-entity class="clickable" id="videokaart-klik" position="-3.22 5.79 -2.04">' +
+				'<a-plane height="0.25" width="1.50" opacity="0" rotation="0 45 0"></a-plane>' +
 				'</a-entity>');
 				
 			APIscherm();
@@ -173,8 +174,40 @@ $(document).ready(function () {
 		}
 	});
 	
-	$("#hardeschijf").on("click", function() {
+	$("#ram").on("click", function() {
 		if (stap == 5){
+			cursorClick();
+			showModelOnCamera(this.id);
+			$('#page').append('<a-entity class="clickable" id="ram-indicator" position="-3.05 7.26 -2.73">' +
+                '<a-plane class="indicator" height="1.1" width=".25" color="yellow" rotation="0 45 0"></a-plane>' +
+                '<a-animation attribute="scale" from="1 1 1" to="0 0 0" repeat="indefinite" dur="2000"></a-animation>' +
+                '</a-entity>'+ 
+				'<a-entity class="clickable" id="ram-klik" position="-3.02 7.26 -2.71">' +
+				'<a-plane height="1.1" width=".25" opacity="0" rotation="0 45 0"></a-plane>' +
+				'</a-entity>');
+				
+			APIscherm();
+			
+			$("#ram-klik").on("click", function() {
+				playCorrectSound();
+				$(this).remove();
+				$("#ram-indicator").remove();
+				$("#ram-klik").remove();
+				$("#ram-camera").remove();
+				$("#ram").attr("visible", true);
+				$("#ram").attr('position', '-3.06 6.71 -2.77');
+				$("#ram").attr('rotation', '0 135 90');
+				
+				stap = 6;
+			});
+		}
+		else {
+			playIncorrectSound();
+		}
+	});
+	
+	$("#hardeschijf").on("click", function() {
+		if (stap == 6){
 			cursorClick();
 			showModelOnCamera(this.id);
 			$('#page').append('<a-entity class="clickable" id="hardeschijf-indicator" position="-1.61 7.25 -2.82">' +
@@ -195,7 +228,7 @@ $(document).ready(function () {
 				$('#hardeschijf').attr('position', '-1.9 7.37 -3.35');
 				$('#hardeschijf').attr('rotation', '0 -45 0');
 				
-				stap = 6;
+				stap = 7;
 				makeLines();
 			});
 		}
