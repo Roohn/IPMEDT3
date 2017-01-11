@@ -60,7 +60,7 @@ $(document).ready(function () {
 				
 			$("#koelblok-klik").on("click", function() {
 				playCorrectSound();
-				
+
 				$(this).remove();
 				$("#koelblok-indicator").remove();
 				$("#koelblok-camera").remove();
@@ -98,9 +98,9 @@ $(document).ready(function () {
                 $(this).remove();
 				$("#motherboard-indicator").remove();
                 $('#motherboard-camera').remove();
-                $('#kast-motherboard').attr('visible', true);
-                $('#kast-processor').attr('visible', true);
-				$("#kast-koelblok").attr("visible", true);
+                $('#motherboard').attr('visible', true);
+				$('#motherboard').attr('position', '-3.5 6.66 -2.4');
+				$('#motherboard').attr('rotation', '0 135 90');
 
                 stap = 3;
             });
@@ -130,8 +130,9 @@ $(document).ready(function () {
 				$(this).remove();
 				$("#voeding-indicator").remove();
 				$("#voeding-camera").remove();
-				$("#kast-voeding").attr("visible", true);
-				
+				$('#voeding').attr('visible', true);
+				$('#voeding').attr('position', '-3.34 4.56 -1.72');
+
 				stap = 4;
                 
 			});
@@ -160,7 +161,9 @@ $(document).ready(function () {
 				$(this).remove();
 				$("#videokaart-indicator").remove();
 				$("#videokaart-camera").remove();
-				$("#kast-videokaart").attr("visible", true);
+				$('#videokaart').attr('visible', true);
+				$('#videokaart').attr('position', '-3.34 5.76 -1.96');
+				$('#videokaart').attr('rotation', '-90 45 90');
 				
 				stap = 5;
 			});
@@ -189,7 +192,8 @@ $(document).ready(function () {
 				$(this).remove();
 				$("#hardeschijf-indicator").remove();
 				$("#hardeschijf-camera").remove();
-				$("#kast-hardeschijf").attr("visible", true);
+				$('#hardeschijf').attr('position', '-1.9 7.37 -3.35');
+				$('#hardeschijf').attr('rotation', '0 -45 0');
 				
 				stap = 6;
 				makeLines();
@@ -206,6 +210,7 @@ function makeLines(){
 	$("#beginLine").attr("visible", true);
 	$("#motherboardLine").attr("visible", true);
 	$("#processorLine").attr("visible", true);
+	$("#videokaartLine").attr("visible", true);
 }
 
 function cursorClick() {
@@ -223,6 +228,6 @@ function playIncorrectSound() {
 }
 
 function showModelOnCamera(model) {
-    $('#' + model).remove();
+    $('#' + model).attr('visible', false);
     $('#' + model + '-camera').attr('visible', true);
 }

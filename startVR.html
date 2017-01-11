@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Desktop Builder - Alpha 3</title>
+
+		<!-- Production Version, Minified -->
+		<script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+		<script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+		<script src="assets/js/jquery-3.1.1.min.js"></script>
+		<script src="assets/js/three3DExtras.min.js"></script>
+
+		<!--Eigen assets-->
+		<script src="assets/js/APIloader.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/lijn.js"></script>
+
+	</head>
+	<body>
+		<div id="vrDiv">
+			<!-- Alles in deze tag wordt VR -->
+			<a-scene id="page">
+				<!-- camera -->
+				<a-entity id="camera" camera="userHeight: 5.6" look-controls wasd-controls>
+					<a-entity id="cursor"
+							  position="0 0 -2"
+							  geometry="primitive: ring; radiusOuter: 0.075;
+							  radiusInner: 0.05;"
+							  material="color: cyan; shader: flat"
+							  cursor="fuse: true; fuseTimeout: 800"
+							  raycaster="far: 20; interval: 1000; objects: .clickable">
+						<a-animation begin="cursorclick" easing="ease-in" attribute="scale"
+									 fill="backwards" from="1 1 1" to="0.1 0.1 0.1" dur="300"></a-animation>
+						<a-animation begin="mouseenter" easing="ease-in" attribute="scale"
+									 fill="forwards" from="1 1 1" to="1.5 1.5 1.5" dur="800"></a-animation>
+						<a-animation begin="mouseleave" easing="ease-in" attribute="scale"
+									 fill="forwards" from="1.5 1.5 1.5" to="1 1 1" dur="300"></a-animation>
+					</a-entity>
+					
+					<a-entity id="tutorial-text" bmfont-text="text: Pak de processor om te beginnen; color: white;" position="-1 3 -4"></a-entity>
+
+					<!-- De processor aan de camera-->
+					<a-entity id="processor-camera" scale="0.5 0.5 0.5" position="1 -1 -1.5" visible="false">
+						<a-collada-model src="#processor-dae"></a-collada-model>
+					</a-entity>
+					
+					<!-- Het koelblok aan de camera-->
+					<a-entity id="koelblok-camera" scale=".5 .5 .5" position="1 -1 -1.5" visible="false">
+						<a-collada-model src="#koelblok-dae"></a-collada-model>
+					</a-entity>
+					
+					<!-- De voeding aan de camera -->
+					<a-entity id="voeding-camera" position="1 -1 -2" scale="0.5 0.5 0.5" rotation="30 0 0" visible="false">
+						<a-collada-model src="#voeding-dae"></a-collada-model>
+					</a-entity>
+
+					<!-- Het moederboard aan de camera-->
+					<a-entity id="motherboard-camera" position="1 -1 -1.5" visible="false" rotation="25 0 0">
+						<a-collada-model src="#motherboard-dae"></a-collada-model>
+						<a-collada-model src="#processor-dae" position="0.85 0.04 -0.07" scale="0.35 0.35 0.35"></a-collada-model>
+						<a-collada-model src="#koelblok-dae"  position="0.85 0.04 -0.07" scale="0.35 0.35 0.35"></a-collada-model>
+					</a-entity>
+					
+					<!-- De videokaart aan de camera -->
+					<a-entity id="videokaart-camera" position="0.95 -1.21 -1.42" scale="7 7 7" rotation="-90 0 0" visible="false">
+						<a-collada-model src="#videokaart-dae"></a-collada-model>
+					</a-entity>
+					
+					<!-- De hardeschijf aan de camera -->
+					<a-entity id="hardeschijf-camera" position="1 -1 -1.5" rotation="25 0 0" visible="false">
+						<a-collada-model src="#hardeschijf-dae"></a-collada-model>
+					</a-entity>
+				</a-entity>
+
+				<!--objecten en MTLs-->
+				<a-assets>
+					<img id="muurBehang" src="assets/img/behang.jpg">
+					<img id="vloerBehang" src="assets/img/laminaat.jpg">
+					<img id="plafondBehang" src="assets/img/plafond.jpg">
+					<img id="windows-logo" src="assets/img/windows-logo.png">
+
+					<a-asset-item id="desk-dae" src="assets/objects/desk.dae"></a-asset-item>
+					<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
+					<a-asset-item id="processor-dae" src="assets/objects/processor.dae"></a-asset-item>
+					<a-asset-item id="motherboard-dae" src="assets/objects/motherboard.dae"></a-asset-item>
+					<a-asset-item id="knop-dae" src="assets/objects/knop.dae"></a-asset-item>
+					<a-asset-item id="monitor-dae" src="assets/objects/monitor.dae"></a-asset-item>
+					<a-asset-item id="voeding-dae" src="assets/objects/voeding.dae"></a-asset-item>
+					<a-asset-item id="koelblok-dae" src="assets/objects/koelblok.dae"></a-asset-item>
+					<a-asset-item id="videokaart-dae" src="assets/objects/videokaart.dae"></a-asset-item>
+					<a-asset-item id="hardeschijf-dae" src="assets/objects/hardeschijf.dae"></a-asset-item>
+					<a-asset-item id="ram-dae" src="assets/objects/ram.dae"></a-asset-item>
+
+					<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
+					<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
+					<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
+					<a-mixin id="windowslogo" geometry="primitive: plane; height: 3.5; width: 4;"material="src:#windows-logo;" ></a-mixin>
+					<a-mixin id="cable" line="color: #E20049"></a-mixin>
+				</a-assets>
+
+				<!-- Ram op het bureau -->
+				<a-entity class="clickable" id="ram" scale="10 10 10" position="-1.6 4.44 -1.9" rotation="-90 0 45">
+					<a-collada-model src="#ram-dae"></a-collada-model>
+				</a-entity>
+				
+				<!-- Het koelblok op het bureau -->
+				<a-entity class="clickable" id="koelblok" scale=".3 .3 .3" position="1 4.5 -3.22">
+					<a-collada-model src="#koelblok-dae"></a-collada-model>
+				</a-entity>
+
+				<!-- De processor op het bureau -->
+				<a-entity class="clickable" id="processor" scale="0.3 0.3 0.3" position="0 4.5 -3.22">
+					<a-collada-model src="#processor-dae"></a-collada-model>
+				</a-entity>
+
+				<!-- De PC kast -->
+				<a-entity id="pcCase"  rotation="0 -45 0" position="-3 4.5 -3">
+					<a-collada-model src="#caseDae" ></a-collada-model>
+				</a-entity>
+				
+				
+				<!-- De videokaart -->
+				<a-entity class="clickable" id="videokaart" scale="7 7 7" position="3.3 4.63 -5.1" rotation="-90 0 90">
+					<a-collada-model src="#videokaart-dae"></a-collada-model>
+				</a-entity>
+				
+				<!-- De hardeschijf -->
+				<a-entity class="clickable" id="hardeschijf" position="1.34 4.63 -5.1">
+					<a-collada-model src="#hardeschijf-dae"></a-collada-model>
+				</a-entity>
+
+				<!-- Het moederbord -->
+				<a-entity class="clickable" id="motherboard" position="3 4.5 -3.5">
+					<a-collada-model src="#motherboard-dae"></a-collada-model>
+					<a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
+					<a-collada-model visible="false" id="combi-koelblok" src="#koelblok-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
+				</a-entity>
+
+				<!-- Het bureau -->
+				<a-entity scale="6 6 6" position="-6 0 -6">
+					<a-collada-model src="#desk-dae"></a-collada-model>
+				</a-entity>
+
+				<!-- Rode infoknop -->
+				<a-entity class="clickable" id="infoknop" position="-3.5 4.3 1" scale="0.25 0.25 0.25">
+					<a-collada-model src="#knop-dae"></a-collada-model>
+				</a-entity>
+
+				<!-- De monitor voor informatie -->
+				<a-entity id="monitor" position="13.10 4.16 3.80" scale="9 9 9" rotation="0 130 0">
+					<a-collada-model src="#monitor-dae"></a-collada-model>
+				</a-entity>
+
+				<!-- De voeding op het bureau -->
+				<a-entity class="clickable" id="voeding" position="-0.52 4.5 -4.5" scale="0.5 0.5 0.5" rotation="0 -45 0">
+					<a-collada-model src="#voeding-dae"></a-collada-model>
+				</a-entity>
+
+				<!-- grond en dak -->
+				<a-plane mixin="vloer" position="0 0 0" rotation="-90 0 0"></a-plane>
+				<a-plane mixin="plafond" position="0 25 0" rotation="90 0 0"></a-plane>
+
+				<!-- de kamer (muren)-->
+				<a-plane mixin="muur" position="0 20 25" rotation="0 180 0"></a-plane>
+				<a-plane mixin="muur" position="0 20 -25"></a-plane>
+				<a-plane mixin="muur" position="-25 20 0" rotation="0 90 0"></a-plane>
+				<a-plane mixin="muur" position="25 20 0" rotation="0 -90 0"></a-plane>
+
+				<!--informatie over opgepakt component-->
+				<a-entity id="informatie-text" bmfont-text="text: ;" position="-2.38 5.56 4.92" rotation="0 130 0" scale="0.85 0.85 0.85"></a-entity>
+				<a-image visible="false" id="informatie-logo" mixin="windowslogo" position="-4.06 6.84 2.93" rotation="0 130 0" scale="0.85 0.85 0.85"></a-image>
+
+				<a-cylinder visible="false" id="beginLine" class="clickable" color="yellow" height="0.5" radius="0.1" position="-2.73 4.99 -1.9" rotation="-56.15 41.83 -88.81" onclick="makeLine(this, 0.2)"></a-cylinder>
+				<a-plane visible="false" id="motherboardLine" class="clickable" color="yellow" height="0.45" width="0.15" position="-2.79 7.5 -2.75" rotation="0 45 0" onclick="makeLine(this, 0.2)"></a-plane>
+				<a-plane visible="false" id="processorLine" class="clickable" color="yellow" height="0.2" width="0.2" position="-3.64 7.69 -1.8" rotation="0 45 0" onclick="makeLine(this, 0.2)"></a-plane>
+				<a-plane visible="false" id="videokaartLine" class="clickable" color="yellow" height="0.2" width="1" position="-3.36 5.71 -1.66" rotation="0 45 0" onclick="makeLine(this, 0.2)"></a-plane>
+
+			</a-scene>
+		</div> 
+	</body>
+</html>

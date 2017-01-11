@@ -2,20 +2,14 @@ $(document).ready(function () {
     beginpos = 0;
     eindpos = 0;
     aantalLijnen = 0;
-    MAX_LIJNEN = 2;
+    MAX_LIJNEN = 3;
 });
 
 //check of begin of eind positie is geselecteerd
 function makeLine(entity, gravity){
     cursorClick();
-    //alle lijnen zijn gemaakt
-    if (aantalLijnen >= MAX_LIJNEN){
-        $("#beginLine").attr("visible", false);
-        $("#motherboardLine").attr("visible", false);
-        $("#processorLine").attr("visible", false);
-    }
     //start alleen bij beginLine (voeding)
-    else if (entity.getAttribute('id') == "beginLine"){
+    if (entity.getAttribute('id') == "beginLine"){
         setLineBegin(entity);
     }
     //nog geen eindpositie maar wel beginpositie
@@ -53,6 +47,14 @@ function drawLine(gravity){
     beginpos = 0;
     eindpos = 0;
     aantalLijnen += 1;
+
+    //alle lijnen zijn gemaakt
+    if (aantalLijnen >= MAX_LIJNEN){
+        $("#beginLine").attr("visible", false);
+        $("#motherboardLine").attr("visible", false);
+        $("#processorLine").attr("visible", false);
+        $("#videokaartLine").attr("visible", false);
+    }
 }
 
 var coordinates = AFRAME.utils.coordinates;
