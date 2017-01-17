@@ -80,9 +80,11 @@
 				<!--objecten en MTLs-->
 				<a-assets>
 					<img id="muurBehang" src="assets/img/behang.jpg">
+					<img id="muurBehang2" src="assets/img/behang2.jpg">
 					<img id="vloerBehang" src="assets/img/laminaat.jpg">
 					<img id="plafondBehang" src="assets/img/plafond.jpg">
 					<img id="windows-logo" src="assets/img/windows-logo.png">
+					<img id="poster1" src="assets/img/poster1.jpg">
 
 					<a-asset-item id="desk-dae" src="assets/objects/desk.dae"></a-asset-item>
 					<a-asset-item id="caseDae" src="assets/objects/pcCase.dae"></a-asset-item>
@@ -95,14 +97,33 @@
 					<a-asset-item id="videokaart-dae" src="assets/objects/videokaart.dae"></a-asset-item>
 					<a-asset-item id="hardeschijf-dae" src="assets/objects/hardeschijf.dae"></a-asset-item>
 					<a-asset-item id="ram-dae" src="assets/objects/ram.dae"></a-asset-item>
-
-					<a-mixin id="muur" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang;"></a-mixin>
+					<a-asset-item id="couch-dae" src="assets/objects/couch.dae"></a-asset-item>
+					<a-asset-item id="plant-dae" src="assets/objects/plant.dae"></a-asset-item>
+					
+					<a-mixin id="muur" geometry="primitive: plane; height:40; width:50; " material="color:#c6dcff;" ></a-mixin>
+					<a-mixin id="muur2" geometry="primitive: plane; height:40; width:50;" material="src:#muurBehang2;"></a-mixin>
 					<a-mixin id="vloer" geometry="primitive: plane; height:50; width: 50;" material="src:#vloerBehang;"></a-mixin>
 					<a-mixin id="plafond" geometry="primitive: plane; height:50; width: 50;" material="src:#plafondBehang;"></a-mixin>
 					<a-mixin id="windowslogo" geometry="primitive: plane; height: 3.5; width: 4;"material="src:#windows-logo;" ></a-mixin>
+					<a-mixin id="poster1mixin" geometry="primitive: plane; height: 10; width: 8;" material="src:#poster1;"></a-mixin>
 					<a-mixin id="cable" line="color: #E20049"></a-mixin>
 				</a-assets>
-
+				
+				<!-- De plant -->
+				<a-entity position="3.17 0 -21.21" rotation="0 0 0" scale="7 7 7 ">
+					<a-collada-model src="#plant-dae"></a-collada-model>
+				</a-entity>
+				
+				<!-- De hoekbank -->
+				<a-entity  position="56.3 0 -28.59" rotation="0 180 0" scale="7 7 7">
+					<a-collada-model src="#couch-dae"></a-collada-model>
+				</a-entity>
+				
+				
+				
+				<!-- Poster 1 -->
+				<a-plane mixin="poster1mixin" position="8.15 15.59 -23.2" rotation="0 0 0"></a-plane>
+				
 				<!-- Ram op het bureau -->
 				<a-entity class="clickable" id="ram" scale="10 10 10" position="-1.6 4.44 -1.9" rotation="-90 0 45">
 					<a-collada-model src="#ram-dae"></a-collada-model>
@@ -139,9 +160,8 @@
 					<a-collada-model src="#motherboard-dae"></a-collada-model>
 					<a-collada-model visible="false" id="combi-processor" src="#processor-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
 					<a-collada-model visible="false" id="combi-koelblok" src="#koelblok-dae" position="0.85 0.05 -0.05" scale="0.35 0.35 0.35"></a-collada-model>
-				</a-entity>
+				</a-entity>	
 				
-
 				<!-- Het bureau -->
 				<a-entity scale="6 6 6" position="-6 0 -6">
 					<a-collada-model src="#desk-dae"></a-collada-model>
@@ -167,10 +187,10 @@
 				<a-plane mixin="plafond" position="0 25 0" rotation="90 0 0"></a-plane>
 
 				<!-- de kamer (muren)-->
-				<a-plane mixin="muur" position="0 20 25" rotation="0 180 0"></a-plane>
-				<a-plane mixin="muur" position="0 20 -25"></a-plane>
-				<a-plane mixin="muur" position="-25 20 0" rotation="0 90 0"></a-plane>
-				<a-plane mixin="muur" position="25 20 0" rotation="0 -90 0"></a-plane>
+				<a-plane mixin="muur2" position="0 20 25" rotation="0 180 0"></a-plane>
+				<a-plane mixin="muur2" position="0 20 -25"></a-plane>
+				<a-plane mixin="muur2" position="-25 20 0" rotation="0 90 0"></a-plane>
+				<a-plane mixin="muur2" position="25 20 0" rotation="0 -90 0"></a-plane>
 
 				<!--informatie over opgepakt component-->
 				<a-entity id="informatie-text" bmfont-text="text: ;" position="-2.38 5.56 4.92" rotation="0 130 0" scale="0.85 0.85 0.85"></a-entity>
