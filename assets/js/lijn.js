@@ -24,11 +24,11 @@ function setLineBegin(entity) {
 
 function setLineEind(entity, gravity) {
     eindpos = entity.getAttribute('position');
-    drawLine(gravity);
+    drawLine(entity, gravity);
 }
 
 //voeg de lijn toe aan scene met goede posities
-function drawLine(gravity){
+function drawLine(entity, gravity){
     var beginposX = beginpos['x'];
     var beginposY = beginpos['y'];
     var beginposZ = beginpos['z'];
@@ -38,10 +38,9 @@ function drawLine(gravity){
     if (gravity < 0 || gravity == undefined) {
         gravity = 0.5;
     }
-    console.log(gravity);
 
-    console.log("Van: " + beginposX, beginposY, beginposZ + " Naar: " + eindposX, eindposY, eindposZ);
     $('#page').append('<a-entity mixin="cable" line="gravity: '+ gravity +'; path: '+ beginposX +' '+ beginposY +' '+ beginposZ +', '+ eindposX +' '+ eindposY +' '+ eindposZ +'"></a-entity>');
+    entity.setAttribute('visible', 'false');
 
     //reset voor een nieuwe lijn
     beginpos = 0;
@@ -51,9 +50,6 @@ function drawLine(gravity){
     //alle lijnen zijn gemaakt
     if (aantalLijnen >= MAX_LIJNEN){
         $("#beginLine").attr("visible", false);
-        $("#motherboardLine").attr("visible", false);
-        $("#processorLine").attr("visible", false);
-        $("#videokaartLine").attr("visible", false);
     }
 }
 
