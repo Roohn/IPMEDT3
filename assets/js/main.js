@@ -238,6 +238,7 @@ $(document).ready(function () {
 				$(this).remove();
 				$("#hardeschijf-indicator").remove();
 				$("#hardeschijf-camera").remove();
+				$('#hardeschijf').attr('visible', true);
 				$('#hardeschijf').attr('position', '-1.9 7.37 -3.35');
 				$('#hardeschijf').attr('rotation', '0 -45 0');
 				
