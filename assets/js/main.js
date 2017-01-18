@@ -1,7 +1,20 @@
 $(document).ready(function () {
+
+	
+	loadProgressBar();
+	
     correctAudio = new Audio('assets/audio/correct.mp3');
     incorrectAudio = new Audio('assets/audio/incorrect.mp3');
     stap = 0;
+	
+	// if ($('a-assets').loaded){
+		// console.log("alles geladen");
+	// }
+	// setTimeout(function(){
+		// $("#loadingDiv").hide();
+		// $("#vrDiv").show();
+		
+	// },5000);
 
     $('#processor').on('click', function () {
         // cursor klik animatie
@@ -237,6 +250,9 @@ $(document).ready(function () {
 			playIncorrectSound();
 		}
 	});
+	
+	
+	
 });
 
 function makeLines(){
@@ -264,4 +280,21 @@ function playIncorrectSound() {
 function showModelOnCamera(model) {
     $('#' + model).attr('visible', false);
     $('#' + model + '-camera').attr('visible', true);
+}
+
+
+function loadProgressBar () {
+	width = 1;
+	setInterval(function(){
+		if (width >= 100){
+			clearInterval(this);
+			$("#loadingDiv").remove();
+			$("#vrDiv").show();
+		} else {
+			width++;
+			$("#Bar").css("width",width+'%');
+			$("#barLabel").html(width + '%');
+		}
+	}, 100);
+	
 }
