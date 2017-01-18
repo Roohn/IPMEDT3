@@ -14,10 +14,24 @@
 		<script src="assets/js/APIloader.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/lijn.js"></script>
+		
+		<link rel="stylesheet" href="assets/css/main.css">
 
 	</head>
 	<body>
-		<div id="vrDiv">
+		<div id="loadingDiv">
+			<div id="centerDiv">
+				<h1>Je kunt je telefoon alvast in je bril doen,<br>
+				wij laden alle componenten alvast in</h1>
+				<div id="progressBar">
+					<div id="Bar"> 
+						<div id="barLabel">1%</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		<div id="vrDiv" >
 			<!-- Alles in deze tag wordt VR -->
 			<a-scene id="page">
 				<!-- camera -->
@@ -118,8 +132,6 @@
 				<a-entity  position="56.3 0 -28.59" rotation="0 180 0" scale="7 7 7">
 					<a-collada-model src="#couch-dae"></a-collada-model>
 				</a-entity>
-				
-				
 				
 				<!-- Poster 1 -->
 				<a-plane mixin="poster1mixin" position="8.15 15.59 -23.2" rotation="0 0 0"></a-plane>
