@@ -111,6 +111,7 @@ $(document).ready(function () {
                 $(this).remove();
 				$("#motherboard-indicator").remove();
                 $('#motherboard-camera').remove();
+				$('#motherboard').removeClass('clickable');
                 $('#motherboard').attr('visible', true);
 				$('#motherboard').attr('position', '-3.5 6.66 -2.4');
 				$('#motherboard').attr('rotation', '0 135 90');
@@ -143,6 +144,7 @@ $(document).ready(function () {
 				$(this).remove();
 				$("#voeding-indicator").remove();
 				$("#voeding-camera").remove();
+				$('#voeding').removeClass('clickable');
 				$('#voeding').attr('visible', true);
 				$('#voeding').attr('position', '-3.34 4.56 -1.72');
 
@@ -175,6 +177,7 @@ $(document).ready(function () {
 				$(this).remove();
 				$("#videokaart-indicator").remove();
 				$("#videokaart-camera").remove();
+				$('#videokaart').removeClass('clickable');
 				$('#videokaart').attr('visible', true);
 				$('#videokaart').attr('position', '-3.34 5.76 -1.96');
 				$('#videokaart').attr('rotation', '-90 45 90');
@@ -207,6 +210,7 @@ $(document).ready(function () {
 				$("#ram-indicator").remove();
 				$("#ram-klik").remove();
 				$("#ram-camera").remove();
+				$('#ram').removeClass('clickable');
 				$("#ram").attr("visible", true);
 				$("#ram").attr('position', '-3.06 6.71 -2.77');
 				$("#ram").attr('rotation', '0 135 90');
@@ -238,6 +242,7 @@ $(document).ready(function () {
 				$(this).remove();
 				$("#hardeschijf-indicator").remove();
 				$("#hardeschijf-camera").remove();
+				$('#hardeschijf').removeClass('clickable');
 				$('#hardeschijf').attr('visible', true);
 				$('#hardeschijf').attr('position', '-1.9 7.37 -3.35');
 				$('#hardeschijf').attr('rotation', '0 -45 0');
