@@ -1,9 +1,6 @@
 $(document).ready(function () {
 
 	loadProgressBar();
-	
-    correctAudio = new Audio('assets/audio/correct.mp3');
-    incorrectAudio = new Audio('assets/audio/incorrect.mp3');
     stap = 0;
 	isOpgepakt = false;
 
@@ -291,11 +288,13 @@ function cursorClick() {
 }
 
 function playCorrectSound(){
+	var correctAudio = document.getElementById('correctSound');
     correctAudio.currentTime = 1.5;
     correctAudio.play();
 }
 
 function playIncorrectSound() {
+	var incorrectAudio = document.getElementById('correctSound');
     incorrectAudio.play();
 }
 
