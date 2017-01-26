@@ -1,20 +1,11 @@
 $(document).ready(function () {
 
-	
 	loadProgressBar();
 	
     correctAudio = new Audio('assets/audio/correct.mp3');
     incorrectAudio = new Audio('assets/audio/incorrect.mp3');
     stap = 0;
-	
-	// if ($('a-assets').loaded){
-		// console.log("alles geladen");
-	// }
-	// setTimeout(function(){
-		// $("#loadingDiv").hide();
-		// $("#vrDiv").show();
-		
-	// },5000);
+	isOpgepakt = false;
 
     $('#processor').on('click', function () {
         // cursor klik animatie
@@ -35,7 +26,7 @@ $(document).ready(function () {
 			);
 
         //laat info op scherm zien
-        APIscherm();
+        APIscherm('processor');
 
         $('#processor-klik').on('click', function () {	
             // cursor klik animatie
@@ -50,12 +41,13 @@ $(document).ready(function () {
 
             //combi van moederboard en processor
             $('#combi-processor').attr('visible', true);
-            stap = 1;
+			stap += 1;
+			isOpgepakt = false;
         });
     });
 	
 	$('#koelblok').on('click', function () {
-		if (stap == 1) {
+		if (stap == 1 && !isOpgepakt) {
 			cursorClick();
 			showModelOnCamera(this.id);
 			$('#page').append('<a-entity class="clickable" id="koelblok-indicator" position="3.85 4.65 -3.6">' +
@@ -69,7 +61,7 @@ $(document).ready(function () {
 			'</a-entity>');
 
             //laat info op scherm zien
-            APIscherm();
+            APIscherm('koelblok');
 				
 			$("#koelblok-klik").on("click", function() {
 				playCorrectSound();
@@ -79,8 +71,8 @@ $(document).ready(function () {
 				$("#koelblok-camera").remove();
 				
 				$("#combi-koelblok").attr("visible", true);
-				stap = 2;
-				
+				stap += 1;
+				isOpgepakt = false;
 			});
 		}
 		else{
@@ -89,7 +81,7 @@ $(document).ready(function () {
 	});
 
     $('#motherboard').on('click', function () {
-        if (stap == 2) {
+        if (stap == 2 && !isOpgepakt) {
             cursorClick();
             showModelOnCamera(this.id);
             $('#page').append('<a-entity class="clickable" id="motherboard-indicator" position="-3.3 6.46 -2.68">' +
@@ -101,7 +93,7 @@ $(document).ready(function () {
 				'</a-entity>');
 
             //laat info op scherm zien
-            APIscherm();
+            APIscherm('moederbord');
 
             $('#motherboard-klik').on('click', function () {
                 // play correct sound
@@ -116,7 +108,8 @@ $(document).ready(function () {
 				$('#motherboard').attr('position', '-3.5 6.66 -2.4');
 				$('#motherboard').attr('rotation', '0 135 90');
 
-                stap = 3;
+				stap += 1;
+				isOpgepakt = false;
             });
         }
         else{
@@ -125,7 +118,8 @@ $(document).ready(function () {
     });
 	
 	$("#voeding").on("click", function() {
-		if (stap == 3) {
+		if (stap >= 3 && !isOpgepakt) {
+			$('#voeding').removeClass('clickable');
 			cursorClick();
 			showModelOnCamera(this.id);
 			$('#page').append('<a-entity class="clickable" id="voeding-indicator" position="-3.51 4.87 -2.45">' +
@@ -137,19 +131,23 @@ $(document).ready(function () {
 				'</a-entity>');
 
             //laat info op scherm zien
-            APIscherm();
+            APIscherm('voeding');
 
 			$("#voeding-klik").on("click", function() {
 				playCorrectSound();
 				$(this).remove();
 				$("#voeding-indicator").remove();
+				$("#voeding-klik").remove();
 				$("#voeding-camera").remove();
-				$('#voeding').removeClass('clickable');
 				$('#voeding').attr('visible', true);
 				$('#voeding').attr('position', '-3.34 4.56 -1.72');
 
-				stap = 4;
-                
+				stap += 1;
+				isOpgepakt = false;
+				if (stap == 7) {
+					APIscherm('geen');
+					makeLines();
+				}
 			});
 		}
         else{
@@ -159,7 +157,8 @@ $(document).ready(function () {
 	
 	
 	$("#videokaart").on("click", function() {
-		if (stap == 4) {
+		if (stap >= 3 && !isOpgepakt) {
+			$('#videokaart').removeClass('clickable');
 			cursorClick();
 			showModelOnCamera(this.id);
 			$('#page').append('<a-entity class="clickable" id="videokaart-indicator" position="-3.23 5.79 -2.05">' +
@@ -170,19 +169,23 @@ $(document).ready(function () {
 				'<a-plane height="0.25" width="1.50" opacity="0" rotation="0 45 0"></a-plane>' +
 				'</a-entity>');
 				
-			APIscherm();
+			APIscherm('videokaart');
 			
 			$("#videokaart-klik").on("click", function() {
 				playCorrectSound();
 				$(this).remove();
 				$("#videokaart-indicator").remove();
 				$("#videokaart-camera").remove();
-				$('#videokaart').removeClass('clickable');
 				$('#videokaart').attr('visible', true);
 				$('#videokaart').attr('position', '-3.34 5.76 -1.96');
 				$('#videokaart').attr('rotation', '-90 45 90');
-				
-				stap = 5;
+
+				stap += 1;
+				isOpgepakt = false;
+				if (stap == 7) {
+					APIscherm('geen');
+					makeLines();
+				}
 			});
 		}
 		else {
@@ -191,7 +194,8 @@ $(document).ready(function () {
 	});
 	
 	$("#ram").on("click", function() {
-		if (stap == 5){
+		if (stap >= 3 && !isOpgepakt){
+			$('#ram').removeClass('clickable');
 			cursorClick();
 			showModelOnCamera(this.id);
 			$('#page').append('<a-entity class="clickable" id="ram-indicator" position="-3.05 7.26 -2.73">' +
@@ -202,7 +206,7 @@ $(document).ready(function () {
 				'<a-plane height="1.1" width=".25" opacity="0" rotation="0 45 0"></a-plane>' +
 				'</a-entity>');
 				
-			APIscherm();
+			APIscherm('ram');
 			
 			$("#ram-klik").on("click", function() {
 				playCorrectSound();
@@ -210,12 +214,16 @@ $(document).ready(function () {
 				$("#ram-indicator").remove();
 				$("#ram-klik").remove();
 				$("#ram-camera").remove();
-				$('#ram').removeClass('clickable');
 				$("#ram").attr("visible", true);
 				$("#ram").attr('position', '-3.06 6.71 -2.77');
 				$("#ram").attr('rotation', '0 135 90');
-				
-				stap = 6;
+
+				stap += 1;
+				isOpgepakt = false;
+				if (stap == 7) {
+					APIscherm('geen');
+					makeLines();
+				}
 			});
 		}
 		else {
@@ -224,7 +232,8 @@ $(document).ready(function () {
 	});
 	
 	$("#hardeschijf").on("click", function() {
-		if (stap == 6){
+		if (stap >= 3 && !isOpgepakt){
+			$('#hardeschijf').removeClass('clickable');
 			cursorClick();
 			showModelOnCamera(this.id);
 			$('#page').append('<a-entity class="clickable" id="hardeschijf-indicator" position="-1.61 7.25 -2.82">' +
@@ -235,29 +244,37 @@ $(document).ready(function () {
 				'<a-plane height="0.25" width="1.45" opacity="0" rotation="0 45 0"></a-plane>' +
 				'</a-entity>');
 				
-			APIscherm();
+			APIscherm('hardeschijf');
 			
 			$("#hardeschijf-klik").on("click", function() {
 				playCorrectSound();
 				$(this).remove();
 				$("#hardeschijf-indicator").remove();
 				$("#hardeschijf-camera").remove();
-				$('#hardeschijf').removeClass('clickable');
 				$('#hardeschijf').attr('visible', true);
 				$('#hardeschijf').attr('position', '-1.9 7.37 -3.35');
 				$('#hardeschijf').attr('rotation', '0 -45 0');
 				
-				stap = 7;
-				makeLines();
+				stap += 1;
+				isOpgepakt = false;
+				if (stap == 7) {
+					APIscherm('geen');
+					makeLines();
+				}
 			});
 		}
 		else {
 			playIncorrectSound();
 		}
 	});
-	
-	
-	
+	$("#infoknop").on('click', function () {
+		if (stap == 99){
+			APIscherm('einde');
+		}
+		else{
+			playIncorrectSound();
+		}
+	});
 });
 
 function makeLines(){
@@ -283,6 +300,7 @@ function playIncorrectSound() {
 }
 
 function showModelOnCamera(model) {
+	isOpgepakt = true;
     $('#' + model).attr('visible', false);
     $('#' + model + '-camera').attr('visible', true);
 }

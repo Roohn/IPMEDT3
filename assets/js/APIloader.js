@@ -1,21 +1,33 @@
-function APIscherm() {
-    if (stap == 0) {
+function APIscherm(huidige) {
+    if (huidige == 'processor') {
         getData('Processor_(computer)');
     }
-    if (stap == 1) {
+    if (huidige == 'koelblok') {
         getData('Koelplaat');
     }
-    if (stap == 2) {
+    if (huidige == 'moederbord') {
         getData('Moederbord');
     }
-    if (stap == 3) {
+    if (huidige == 'voeding') {
         getData('Voeding_(elektronica)');
     }
-    if (stap == 4) {
+    if (huidige == 'ram') {
+        getData('Random-access_memory');
+    }
+    if (huidige == 'videokaart') {
+        getData('Videokaart');
+    }
+    if (huidige == 'hardeschijf') {
+        getData('Harde_schijf');
+    }
+    if (huidige == 'einde') {
         $('#informatie-text').attr('visible', 'false');
         $('#informatie-logo').attr('visible', 'true');
     }
-    // TODO: alle andere stappen toevoegen
+    //niets meegegeven of 'leeg'
+    else {
+        $('#informatie-text').attr('bmfont-text', 'text: ;');
+    }
 }
 
 function getData(dataString){
@@ -44,6 +56,10 @@ function getData(dataString){
                     break;
                 case "Koelplaat":
                     pageID = 1240351;
+                    break;
+                case "Harde_schijf":
+                    pageID = 15117;
+                    break;
             }
             var informatie = (msg['query']['pages'][pageID]['extract']);
             $('#informatie-text').attr('bmfont-text', 'text: ' + informatie + '; color: white; width: 1200.00');

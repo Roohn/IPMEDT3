@@ -50,6 +50,7 @@ function drawLine(entity, gravity){
     //alle lijnen zijn gemaakt
     if (aantalLijnen >= MAX_LIJNEN){
         $("#beginLine").attr("visible", false);
+        stap = 99;
     }
 }
 
