@@ -294,7 +294,7 @@ function playCorrectSound(){
 }
 
 function playIncorrectSound() {
-	var incorrectAudio = document.getElementById('correctSound');
+	var incorrectAudio = document.getElementById('incorrectSound');
     incorrectAudio.play();
 }
 
