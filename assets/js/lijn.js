@@ -20,6 +20,19 @@ function makeLine(entity, gravity){
 
 function setLineBegin(entity) {
     beginpos = entity.getAttribute('position');
+    //voedingvlak weg voor duidelijkheid
+    $("#beginLine").attr("visible", false);
+
+    //laat alleen vlakken zien die nog getekend moeten worden
+    if (!$("#motherboardLine").hasClass("getekend")){
+        $("#motherboardLine").attr("visible", true);
+    }
+    if (!$("#processorLine").hasClass("getekend")){
+        $("#processorLine").attr("visible", true);
+    }
+    if (!$("#videokaartLine").hasClass("getekend")){
+        $("#videokaartLine").attr("visible", true);
+    }
 }
 
 function setLineEind(entity, gravity) {
@@ -40,7 +53,11 @@ function drawLine(entity, gravity){
     }
 
     $('#page').append('<a-entity mixin="cable" line="gravity: '+ gravity +'; path: '+ beginposX +' '+ beginposY +' '+ beginposZ +', '+ eindposX +' '+ eindposY +' '+ eindposZ +'"></a-entity>');
-    entity.setAttribute('visible', 'false');
+    $("#motherboardLine").attr("visible", false);
+    $("#processorLine").attr("visible", false);
+    $("#videokaartLine").attr("visible", false);
+    $("#beginLine").attr("visible", true);
+    entity.className += " getekend";
 
     //reset voor een nieuwe lijn
     beginpos = 0;

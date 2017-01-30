@@ -277,9 +277,9 @@ $(document).ready(function () {
 function makeLines(){
     //laatste stap!! Trek lijnen.
 	$("#beginLine").attr("visible", true);
-	$("#motherboardLine").attr("visible", true);
-	$("#processorLine").attr("visible", true);
-	$("#videokaartLine").attr("visible", true);
+	// $("#motherboardLine").attr("visible", true);
+	// $("#processorLine").attr("visible", true);
+	// $("#videokaartLine").attr("visible", true);
 }
 
 function cursorClick() {
